@@ -19,22 +19,22 @@
         
         <div class="header_link">
             <div class="header_nav ">
-                <a href="index.html" class="cadre">Event</a>
+                <a href="index.html" class="header_cadre">Event</a>
             </div>
             <div class="header_nav ">
-                <a href="index.html" class="cadre">Article</a>
+                <a href="index.html" class="header_cadre">Article</a>
             </div>
             <div class="header_nav ">
-                <a href="index.html" class="cadre">Produit & Prestation</a>
+                <a href="index.html" class="header_cadre">Produit & Prestation</a>
             </div>
             <div class="header_nav ">
-                <a href="index.html" class="cadre">Contact</a>
+                <a href="index.html" class="header_cadre">Contact</a>
             </div>
         </div>
 
         <div class="header_login">
             <div class="header_nav ">
-                <a href="index.html" class="cadre">Login</a>
+                <a href="index.html" class="header_cadre">Login</a>
             </div>
         </div>
         

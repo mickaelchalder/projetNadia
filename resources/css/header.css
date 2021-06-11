@@ -45,10 +45,10 @@ table {
     border-spacing: 0;
 }
 
-.cadre{
+.header_cadre{
   color:rgb(255, 255, 255);
 }
-.cadre:hover{
+.header_cadre:hover{
   padding:5px;
   border: 2px solid rgba(255, 255, 255, 0.8);
 }
