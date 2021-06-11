@@ -4,30 +4,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/resources/css/header.css">
+    <link rel="stylesheet" href="../resources/css/header.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <a href="index.html">logo</a>
-        </div>
-        <div class="logo">
-            <a href="index.html">Event</a>
-        </div>
-        <div class="logo">
-            <a href="index.html">Article</a>
-        </div>
-        <div class="logo">
-            <a href="index.html">Produit&Prestation</a>
-        </div>
-        <div class="logo">
-            <a href="index.html">Newsletter</a>
-        </div>
-        <div class="logo">
-            <a href="index.html">Login</a>
+    <nav >
+        <div class="header_logo ">
+            <a href="index.html"><img src="../resources/image/trans.PNG" width="70px" height="70px" alt="logo"></a>
         </div>
         
-    </nav>
+        <div class="header_link">
+            <div class="header_nav ">
+                <a href="index.html">Event</a>
+            </div>
+            <div class="header_nav ">
+                <a href="index.html">Article</a>
+            </div>
+            <div class="header_nav ">
+                <a href="index.html">Produit & Prestation</a>
+            </div>
+            <div class="header_nav ">
+                <a href="index.html">Newsletter</a>
+            </div>
+        </div>
+
+        <div class="header_login">
+            <div class="header_nav ">
+                <a href="index.html">Login</a>
+            </div>
+        </div>
+        
+    </div>
+
+    <a href="javascript:void(0);" class="header_icon" onclick="openNav()" ><i class="fa fa-bars"></i></a>
+
+    <div id="myNav" class="header_overlay">
+        <a href="javascript:void(0)" class="header_closebtn" onclick="closeNav()">&times;</a>
+        <div class="header_overlay-content">
+                <a href="index.html">Event</a>
+                <a href="index.html">Article</a>
+                <a href="index.html">Produit & Prestation</a>
+                <a href="index.html">Newsletter</a>
+                <a href="index.html">Login</a>
+            </div> 
+    </div>
+</nav>        
+       
 </body>
+<script>
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
 </html>
