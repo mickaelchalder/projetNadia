@@ -28,7 +28,7 @@
                 <a href="index.html">Produit & Prestation</a>
             </div>
             <div class="header_nav ">
-                <a href="index.html">Newsletter</a>
+                <a href="index.html">Contact</a>
             </div>
         </div>
 
@@ -40,7 +40,7 @@
         
     </div>
 
-    <a href="javascript:void(0);" class="header_icon" onclick="openNav()" ><i class="fa fa-bars"></i></a>
+    <a href="javascript:void(0);" class="header_icon" onclick="openNav()" ><img src="../resources/image/menu.PNG" width="50px" height="50px" alt="menu"></img></a>
 
     <div id="myNav" class="header_overlay">
         <a href="javascript:void(0)" class="header_closebtn" onclick="closeNav()">&times;</a>
@@ -48,7 +48,7 @@
                 <a href="index.html">Event</a>
                 <a href="index.html">Article</a>
                 <a href="index.html">Produit & Prestation</a>
-                <a href="index.html">Newsletter</a>
+                <a href="index.html">Contact</a>
                 <a href="index.html">Login</a>
             </div> 
     </div>
