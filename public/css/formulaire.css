@@ -25,12 +25,9 @@
         width: 50px;
         height: 50px;
         cursor: pointer;
-        border: 3px solid white;
+
     }
-    .croix{
-        padding:0;
-        margin: 0;
-    }
+
 
 
     .Form_overlay{
@@ -68,7 +65,7 @@
         box-shadow: none;
         line-height: 40px;
         height: 40px;
-        width: 60%;
+        width: 33%;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 25px;

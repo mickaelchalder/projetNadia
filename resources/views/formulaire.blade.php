@@ -1,7 +1,7 @@
 @include('layout.header')
 <a href="javascript:void(0);" class="Form_icon" onclick="openForm()" ><img src="{{asset('storage/image/letter.PNG')}}" width="60px" height="60px" alt="formulaire"></img></a>
 <div id="myForm" class="Form_overlay">
-    <a href="javascript:void(0)" class="Form_closebtn" onclick="closeForm()"> <span class="croix">&times;</span></a>
+    <a href="javascript:void(0)" class="Form_closebtn" onclick="closeForm()">&times;</a>
     <div class="Form_overlay-content">
         <form  action="" method="post">
             <div >
@@ -10,22 +10,22 @@
                 </div>
                 <div>
                   <fieldset>
-                    <input name="name" type="text" class="Form_control"  placeholder="Your name..." >
+                    <input name="name" type="text" class="Form_control"  placeholder="Votre nom..." >
                   </fieldset>
                 </div>
                 <div>
                   <fieldset>
-                    <input name="email" type="email" class="Form_control"  placeholder="Your email..." >
+                    <input name="email" type="email" class="Form_control"  placeholder="Votre email..." >
                   </fieldset>
                 </div>
                 <div>
                   <fieldset>
-                    <textarea name="message"  class="Form_control Form_message"  placeholder="Your message..." ></textarea>
+                    <textarea name="message"  class="Form_control Form_message"  placeholder="Votre message..." ></textarea>
                   </fieldset>
                 </div>
                 <div>
                   <fieldset>
-                    <button type="submit"  class="Form_btn">Send Message Now</button>
+                    <button type="submit"  class="Form_btn">Envoyer un message</button>
                   </fieldset>
                 </div>
             </div>
