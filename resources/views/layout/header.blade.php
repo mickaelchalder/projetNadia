@@ -14,6 +14,7 @@
 </head>
 <body>
     <nav >
+        
         <div class="header_logo ">
             <a href="index.html"><img src="{{asset('storage/image/trans.PNG')}}" width="70px" height="70px" alt="logo"></a>
         </div>
