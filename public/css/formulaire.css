@@ -94,3 +94,16 @@
         border-left: none;
         cursor: pointer;
     }
+
+    @media screen and (max-width:1400px){
+        
+        .Form_control{
+            width: 63%;
+        }
+    }
+    @media screen and (max-width:750px){
+        
+        .Form_control{
+            width: 83%;
+        }
+    }
