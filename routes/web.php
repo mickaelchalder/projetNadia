@@ -15,6 +15,6 @@ use App\Http\Controllers\FormulaireController;
 */
 
 Route::get('/', function () {
-    return view('formulaire');
+    return view('accueil');
 });
-Route::post('formulaire', [FormulaireController::class, 'store']);
+Route::get('formulaire', [FormulaireController::class, 'create']);

@@ -1,7 +1,7 @@
 @include('layout.header')
-<a href="javascript:void(0);" class="Form_icon" onclick="openForm()" ><img src="{{asset('storage/image/letter.PNG')}}" width="60px" height="60px" alt="formulaire"></img></a>
-<div id="myForm" class="Form_overlay">
-    <a href="javascript:void(0)" class="Form_closebtn" onclick="closeForm()">&times;</a>
+<body>
+<div  class="Form_overlay">
+    <a href="{{url('/')}}" class="Form_closebtn" >&times;</a>
     <div class="Form_overlay-content">
         <form  action="{{ url('formulaire') }}" method="post">
           @csrf
@@ -42,5 +42,4 @@
         </form>
     </div> 
 </div>
-@include('layout.footer')
-                        
+@include('layout.footer')                   
