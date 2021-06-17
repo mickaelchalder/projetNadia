@@ -18,3 +18,4 @@ Route::get('/', function () {
     return view('accueil');
 });
 Route::get('formulaire', [FormulaireController::class, 'create']);
+Route::post('formulaire', [FormulaireController::class, 'store']);

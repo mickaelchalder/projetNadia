@@ -26,7 +26,6 @@
             </div>
         </div>
         
-    </div>
 
     <a href="javascript:void(0);" class="header_icon" onclick="openNav()" ><img src="{{asset('storage/image/menu.PNG')}}" width="50px" height="50px" alt="menu"></img></a>
 
