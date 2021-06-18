@@ -2,7 +2,6 @@
 @include('layout.nav')
 <div id="flex-container-accueil">	
     <span class="assoNom">À petits pas<div>avec</div><div>Jordan</div></span>
-    <span class="assoNomDesc">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</span>
     <a href="#show" id="arrowDown"><img src="{{ asset('storage/image/flecheDown.png')}}" class="logoArrow"></a>
     </div>
 

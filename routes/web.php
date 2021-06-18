@@ -28,9 +28,7 @@ Route::group(["middleware" => "web"], function(){
     // Route pour aller à l'article
     Route::get('/articles/{article}', [ArticleController::class, 'getArticle']);
 
-    Route::get('/', function () {
-        return view('accueil');
-    });
+    
     Route::get('formulaire', [FormulaireController::class, 'create']);
     Route::post('formulaire', [FormulaireController::class, 'store']);
 });

@@ -1,9 +1,11 @@
 html, body{
-	background-color: #a55c1b;
+
 	background-image: linear-gradient(315deg, #a55c1b 0%, #000000 74%);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+	font-family: 'Viaoda Libre', cursive;
+	letter-spacing: 0.5em;
 }
 .titre-article{
 	display: block;
@@ -18,12 +20,10 @@ html, body{
 .assoNom{
 	padding-bottom: 20px;
 	font-weight: bolder;
-	font-size: 50px;
+	font-size: 40px;
+	text-transform: uppercase;
 }
-.assoNomDesc{
-	font-size: 20px;
-	padding-bottom: 20px;
-}
+
 .cadreImage{
 	width: 100%;
 	grid-area: img;
@@ -56,11 +56,13 @@ html, body{
 height: 20px;
 display: flex;
 align-items: center;
-background-color: rgb(178,34,34);
+background-color: #8B4513 ;
 border-radius: 30%;
-padding: 4%;
+padding: 0.5%;
 position: fixed;
 bottom: 0;
+letter-spacing: 0.2em;
+box-shadow:5px 5px 10px white;
 }
 .logoArrow{
 	width: 20%;
@@ -79,6 +81,11 @@ bottom: 0;
 .lien-color{
 	color: var(--main-color-text);
 	margin: 2%;
+	padding: 0.7%;
+	border: solid 2px white;
+	width: max-content;
+	display:flex;
+	justify-self: center;
 }
 #show{
 	display: none;
@@ -113,6 +120,9 @@ bottom: 0;
 }
 #article{
 	text-align: center;
+	letter-spacing: 0.2em;
+	line-height: 1.2em;
+	background-color: rgb(178,34,34);
 }
 #Jordan{
 	background-image: linear-gradient(
@@ -123,7 +133,6 @@ bottom: 0;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 /*============Responsive Ordinateur*/
@@ -132,19 +141,14 @@ bottom: 0;
 html, body{
 	background-color: #BABECC;
 	background-image: none;
-	height: 0;
 	width: 100%;
 	grid-area: img;
 }
 .assoNom{
 	padding-bottom: 20px;
 	font-weight: bolder;
-	font-size: 80px;
-	text-transform: uppercase;
-}
-.assoNomDesc{
 	font-size: 40px;
-	padding-bottom: 20px;
+	text-transform: uppercase;
 }
 .logoArrow{
 	width: 10%;
@@ -154,8 +158,9 @@ html, body{
 }
 .cadreImage2{
 	grid-area: img2;
-	margin: auto;
 	width: 80%;
+	margin-left: 8%;
+	margin-top: 5%;
 }
 .titreArticle{
 	grid-area: titre;
@@ -169,7 +174,6 @@ html, body{
 }
 .voirFB{
 	height: 50px;
-	padding: 0;
 }
 #flex-container-article{
 	display: grid;
@@ -187,8 +191,17 @@ html, body{
 	align-items: center;
 }
 #flex-container-accueil{
-	height: 600px;
-	margin-bottom: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 97%;
+	height: 60%;
+	margin: auto;
+	text-align: center;
+	margin-bottom: 65px;
+	margin-top: 8%;
+	line-height: 3em;
 }
 [aria-label="Pagination Navigation"] .relative{
 /*	background: var(--main-color-btn-pagination) url("../storage/image/fond02.png");*/
@@ -205,8 +218,6 @@ html, body{
 	padding-bottom: auto;
 }
 #article{
-	background-color: #a55c1b;
-	background-image: linear-gradient(315deg, #a55c1b 0%, #000000 74%);
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 0fr 1fr;
