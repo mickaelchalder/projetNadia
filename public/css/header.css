@@ -48,22 +48,43 @@ table {
 .header_cadre{
   color:rgb(255, 255, 255);
 }
+
 .header_cadre:hover{
   padding:5px;
   border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
-nav{
-    display: flex;
-    align-items: flex-end;
-    box-shadow: 0px 0.1px 10px 0px;
-    background-color: rgba(151, 148, 148, 0.3);
-    width: 100%;
-    height: 80px;
+                  /*------------------------CSS-------------------------*/
+:root{
+  --main-color-text: white;
+  --main-background-color: black;
+  --main-color-article: #BABECC;
 }
-    
-    
-  .header_logo{
+html, body{
+  height: 100%;
+  background-color: var(--main-color-article);
+  color: var(--main-color-text);
+}
+nav{
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0px 0.1px 10px 0px;
+  background-color: rgba(151, 148, 148, 0.3);
+  width: 100%;
+  height: 80px;
+}
+p{
+  display: none;
+}
+svg{
+  height: 20px;
+}
+/* .flex-container-nav{
+  display: flex;
+  align-items: center;
+} */
+
+ .header_logo{
       width: 28%;
       margin-left: 2%;
       margin-bottom: 1px;
@@ -71,16 +92,16 @@ nav{
   }
 
  .header_link{
-    width: 50%;
-    display: inline-flex;
-    justify-content: space-between;
+  width: 50%;
+  display: inline-flex;
+  justify-content: space-between;
 }
 
 .header_login{
-    width: 15%;
-    margin-right: 5%;
-    display: inline-flex;
-    justify-content: end;
+  width: 15%;
+  margin-right: 5%;
+  display: inline-flex;
+  justify-content: end;
 } 
 
 .header_nav{
@@ -177,7 +198,8 @@ nav{
   }
 }  
   @media screen and (max-width: 450px) {
-    .header_overlay a {font-size: 24px;}
+    .header_overlay a {
+      font-size: 24px;}
     .header_overlay {
       position: absolute;
       top: 0px;
@@ -194,12 +216,8 @@ nav{
 
      .header_icon {
        width:13%;
-      margin-right: 5%;
-      margin-bottom: 13px;
+       margin-right: 5%;
+       margin-bottom: 13px;
       display: block;
     } 
-
-
-
-
   } 

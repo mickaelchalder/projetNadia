@@ -1,0 +1,223 @@
+html, body{
+	background-color: #a55c1b;
+	background-image: linear-gradient(315deg, #a55c1b 0%, #000000 74%);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.titre-article{
+	display: block;
+	position: absolute;
+	bottom: 1px;
+	color: var(--main-color-text);
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 100%;
+	letter-spacing: 0.1rem;
+}
+.assoNom{
+	padding-bottom: 20px;
+	font-weight: bolder;
+	font-size: 50px;
+}
+.assoNomDesc{
+	font-size: 20px;
+	padding-bottom: 20px;
+}
+.cadreImage{
+	width: 100%;
+	grid-area: img;
+}
+.cadreImage2{
+	width: 100%;
+}
+.positionTitre{
+	position: relative;
+}
+.flex-container-titre-image{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	height: 20px;
+	background: linear-gradient(to right top, #c94663, #c94663);
+	opacity: 70%;
+}
+.articleSmartphone{
+	display: none;
+}
+.btn-FB-sticky{
+	position: sticky;
+	bottom: 0;
+	right: 0;
+	height: 30px;
+}
+.voirFB{
+height: 20px;
+display: flex;
+align-items: center;
+background-color: rgb(178,34,34);
+border-radius: 30%;
+padding: 4%;
+position: fixed;
+bottom: 0;
+}
+.logoArrow{
+	width: 20%;
+}
+.titreArticle{
+	margin: 20px;
+	font-size: 30px;
+	font-weight: bold;
+}
+.message{
+	text-align: justify;
+	text-indent: 2em;
+	margin: 15px;
+	padding-bottom: 50px;
+}
+.lien-color{
+	color: var(--main-color-text);
+	margin: 2%;
+}
+#show{
+	display: none;
+}
+#flex-container-accueil{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 70%;
+	height: 80%;
+	margin: auto;
+	text-align: center;
+	margin-bottom: 65px;
+}
+#flex-container-article{
+	display: flex;
+	flex-direction: column;
+}
+#flex-container-btn-fb{
+	display: flex;
+	justify-content: flex-end;
+}
+#btn-nav{
+	text-align: center;
+}
+[aria-label="Pagination Navigation"] .relative{
+	font-size: 30px;
+	display: inline-block;
+	color: var(--main-color-text);
+	margin-top: 5px;
+}
+#article{
+	text-align: center;
+}
+#Jordan{
+	background-image: linear-gradient(
+        rgba(0, 0, 0, 0.3), 
+        rgba(0, 0, 0, 0.3)
+      ), 
+		url('../storage/image/Background_Nadia.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+/*============Responsive Ordinateur*/
+@media screen and (min-device-width: 1004px) {
+
+html, body{
+	background-color: #BABECC;
+	background-image: none;
+	height: 0;
+	width: 100%;
+	grid-area: img;
+}
+.assoNom{
+	padding-bottom: 20px;
+	font-weight: bolder;
+	font-size: 80px;
+	text-transform: uppercase;
+}
+.assoNomDesc{
+	font-size: 40px;
+	padding-bottom: 20px;
+}
+.logoArrow{
+	width: 10%;
+}
+.cadreImage{
+	height: 400px;
+}
+.cadreImage2{
+	grid-area: img2;
+	margin: auto;
+	width: 80%;
+}
+.titreArticle{
+	grid-area: titre;
+}
+.message{
+	grid-area: message;
+	font-size: 20px;
+}
+.btn-retour{
+	text-align: center;
+}
+.voirFB{
+	height: 50px;
+	padding: 0;
+}
+#flex-container-article{
+	display: grid;
+	width: 100%;
+	height: 100%;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 0fr 0fr 0fr 0.2fr;
+	grid-template-areas:
+	"img img img"
+	"img img img"
+	"img img img"
+	"btn btn btn";
+	/*border: solid 3px white;*/
+	text-align: center;
+	align-items: center;
+}
+#flex-container-accueil{
+	height: 600px;
+	margin-bottom: 0;
+}
+[aria-label="Pagination Navigation"] .relative{
+/*	background: var(--main-color-btn-pagination) url("../storage/image/fond02.png");*/
+	text-align: center;
+	font-size: 30px;
+	display: inline-block;
+	width: 20%;
+	color: var(--main-color-text);
+	text-shadow: 1px 1px 0 var(--main-color-text-shadow-white);
+}
+#btn-nav{
+	text-align: center;
+	grid-area: btn;
+	padding-bottom: auto;
+}
+#article{
+	background-color: #a55c1b;
+	background-image: linear-gradient(315deg, #a55c1b 0%, #000000 74%);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 0fr 1fr;
+	grid-template-areas:
+	"img2 titre"
+	"img2 message";
+	margin: 5%;
+	padding: 3%;
+	box-shadow: 20px 20px 10px black;
+	margin-bottom: 8%;
+}
+
+
+}
