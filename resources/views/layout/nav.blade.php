@@ -7,7 +7,7 @@
         
         <div class="header_link">
             <div class="header_nav ">
-                <a href="index.html" class="header_cadre">Event</a>
+                <a href="index.html" class="header_cadre">Calendrier</a>
             </div>
             <div class="header_nav ">
                 <a href="index.html" class="header_cadre">Article</a>
@@ -16,7 +16,7 @@
                 <a href="index.html" class="header_cadre">Produit & Prestation</a>
             </div>
             <div class="header_nav ">
-                <a href="index.html" class="header_cadre">Newsletter</a>
+                <a href="index.html" class="header_cadre">Histoire</a>
             </div>
         </div>
 
@@ -32,7 +32,7 @@
     <div id="myNav" class="header_overlay">
         <a href="javascript:void(0)" class="header_closebtn" onclick="closeNav()">&times;</a>
         <div class="header_overlay-content">
-            <a href="index.html">Event</a>
+            <a href="index.html">Calendrier</a>
             <a href="index.html">Article</a>
             <a href="index.html">Produit & Prestation</a>
             <a href="index.html">Newsletter</a>
@@ -42,4 +42,6 @@
 
 </nav>
 <a href="{{url('formulaire')}}" class="Form_icon"  ><img src="{{asset('storage/image/letter.PNG')}}" width="60px" height="60px" alt="formulaire"></a>
+
+<a href="{{url('formulaire')}}" class="Form_icon2"  ><img src="{{asset('storage/image/newsletter.PNG')}}" width="60px" height="60px" alt="formulaire"></a>
        

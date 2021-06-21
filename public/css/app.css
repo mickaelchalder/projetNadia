@@ -20,7 +20,7 @@ html, body{
 .assoNom{
 	padding-bottom: 20px;
 	font-weight: bolder;
-	font-size: 40px;
+	font-size: 16px;
 	text-transform: uppercase;
 }
 
@@ -65,7 +65,16 @@ letter-spacing: 0.2em;
 box-shadow:5px 5px 10px white;
 }
 .logoArrow{
-	width: 20%;
+	width: 60px;
+	height:60px;
+}
+.logoArrow:hover{
+	background-color: rgb(172, 164, 164);
+	border-radius: 50%;
+}
+#arrowDown{
+	width: 40%;
+	
 }
 .titreArticle{
 	margin: 20px;
@@ -92,14 +101,14 @@ box-shadow:5px 5px 10px white;
 }
 #flex-container-accueil{
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	flex-direction: row;
+	justify-content: start;
+	align-items: start;
 	width: 70%;
 	height: 80%;
 	margin: auto;
 	text-align: center;
-	margin-bottom: 65px;
+	margin-top: 15px;
 }
 #flex-container-article{
 	display: flex;
@@ -126,8 +135,8 @@ box-shadow:5px 5px 10px white;
 }
 #Jordan{
 	background-image: linear-gradient(
-        rgba(0, 0, 0, 0.3), 
-        rgba(0, 0, 0, 0.3)
+        rgba(0, 0, 0, 0.6), 
+        rgba(0, 0, 0, 0.6)
       ), 
 		url('../storage/image/Background_Nadia.jpg');
 	background-repeat: no-repeat;
@@ -149,9 +158,11 @@ html, body{
 	font-weight: bolder;
 	font-size: 40px;
 	text-transform: uppercase;
+	width: 35%;
 }
-.logoArrow{
-	width: 10%;
+#arrowDown{
+	width: 35%;
+	
 }
 .cadreImage{
 	height: 400px;
@@ -175,6 +186,12 @@ html, body{
 .voirFB{
 	height: 50px;
 }
+
+.logoArrow{
+	width: 80px;
+	height:80px;
+}
+
 #flex-container-article{
 	display: grid;
 	width: 100%;

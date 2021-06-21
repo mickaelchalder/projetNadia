@@ -17,6 +17,12 @@
         right:5%;
         
     }
+    .Form_icon2{
+        position: absolute;
+        bottom: 15%;
+        right:5%;
+        
+    }
     .Form_overlay-content{
         display: block;
         position: relative;
