@@ -100,6 +100,7 @@ svg{
   width: 50%;
   display: inline-flex;
   justify-content: space-between;
+  margin-bottom: 9px;
 }
 
 .header_login{
@@ -107,6 +108,7 @@ svg{
   margin-right: 5%;
   display: inline-flex;
   justify-content: end;
+  margin-bottom: 9px;
 } 
 
 .header_nav{
@@ -117,8 +119,74 @@ svg{
  .header_overlay,.header_icon {
     display: none;
   } 
+    /*=================================dropdown===============================*/
 
-@media screen and (max-width: 1314px) {
+    .navbar {
+      overflow: hidden;
+      margin-left: 8%;
+      margin-bottom: 23px;
+    }
+    
+    .navbar a {
+      float: left;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+    }
+    
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+    
+    .dropdown .dropbtn {
+      font-size: 16px;  
+      border: none;
+      outline: none;
+      color: white;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+    
+    .navbar a:hover, .dropdown:hover .dropbtn {
+      color: rgb(161, 68, 68,0);
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      color:#f1f1f1;
+      background-color: #f9f9f900;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(255, 255, 255, 0.4);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      float: none;
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      font-size: 20px;
+
+    }
+    
+    .dropdown-content a:hover {
+      background-color: rgb(221, 221, 221,0.4);
+      color: rgb(255, 255, 255);
+        
+
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+
+@media screen and (max-width: 1550px) {
       .header_logo{
         width: 13%;
 
@@ -136,7 +204,7 @@ svg{
     } 
 }
 
-@media screen and (max-width: 956px) {
+@media screen and (max-width: 1100px) {
   .header_link,.header_login{
     display:none;
   }
@@ -160,6 +228,7 @@ svg{
   
 
    .header_overlay {
+    overflow: none;
     display: block;
     height: 100%;
     width: 0;
@@ -176,7 +245,7 @@ svg{
   .header_overlay-content {
     display: block;
     position: relative;
-    top: 15%;
+    top: 10%;
     width: 100%;
     text-align: center;
     margin-top: 30px;
@@ -225,4 +294,9 @@ svg{
        margin-bottom: 13px;
       display: block;
     } 
+
+    
+
+
+    
   } 

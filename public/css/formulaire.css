@@ -13,14 +13,14 @@
     }
     .Form_icon{
         position: absolute;
-        bottom: 5%;
-        right:5%;
+        bottom: 15%;
+        right:3%;
         
     }
     .Form_icon2{
         position: absolute;
-        bottom: 15%;
-        right:5%;
+        bottom: 5%;
+        right:3%;
         
     }
     .Form_overlay-content{
@@ -129,9 +129,32 @@
             width: 63%;
         }
     }
+    @media screen and (max-width:1374px){
+        
+        .Form_icon{
+            position: absolute;
+            bottom: 18%;
+            right:3%;
+            
+        }
+        .Form_icon2{
+            position: absolute;
+            bottom: 8%;
+            right:3%;
+            
+        }
+    }
     @media screen and (max-width:750px){
         
         .Form_control{
             width: 83%;
+        }
+
+        .Form_icon{
+            display:none;
+            
+        }
+        .Form_icon2{
+            display:none;
         }
     }

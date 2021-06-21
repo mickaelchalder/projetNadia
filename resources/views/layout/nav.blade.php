@@ -6,8 +6,16 @@
         </div>
         
         <div class="header_link">
-            <div class="header_nav ">
-                <a href="index.html" class="header_cadre">Calendrier</a>
+            <div class=" navbar ">
+                <div class="  dropdown ">
+                    <a class="dropbtn">Histoire 
+                      <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content">
+                      <a href="#">Bio</a>
+                      <a href="#">Hommage</a>
+                    </div>
+                  </div> 
             </div>
             <div class="header_nav ">
                 <a href="index.html" class="header_cadre">Article</a>
@@ -15,8 +23,15 @@
             <div class="header_nav ">
                 <a href="index.html" class="header_cadre">Produit & Prestation</a>
             </div>
-            <div class="header_nav ">
-                <a href="index.html" class="header_cadre">Histoire</a>
+            <div class=" navbar ">
+                <div class="  dropdown ">
+                    <a class="dropbtn">Calendrier 
+                      <i class="fa fa-caret-down"></i>
+                    </a>
+                    <div class="dropdown-content">
+                      <a href="#">Bio</a>
+                    </div>
+                  </div> 
             </div>
         </div>
 
@@ -36,6 +51,9 @@
             <a href="index.html">Article</a>
             <a href="index.html">Produit & Prestation</a>
             <a href="index.html">Newsletter</a>
+            <a href="index.html">Contact</a>
+            <a href="index.html">Bio</a>
+            <a href="index.html">Hommage</a>
             <a href="index.html">Login</a>
         </div> 
     </div>
