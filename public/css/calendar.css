@@ -1,0 +1,170 @@
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+h5{
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  text-decoration: none;
+  color: #666;
+  cursor: pointer;
+}
+
+a:hover,a:hover #myBtn{
+  color: rgb(197, 182, 182);
+  cursor: pointer;
+}
+
+.alldays{
+  color: rgba(110, 109, 109, 0.76);
+  border: none;
+  background-color: transparent;
+}
+
+.alldays:hover{
+  color: rgb(218, 209, 209);
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+ .event{
+  color: rgb(32, 31, 31);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.beforedays{
+  text-align: center;
+  font-size: 12px;
+  margin: 0;
+  padding:0;
+  color: rgba(110, 109, 109, 0.76);;
+}
+ .event:hover{
+  color: rgb(148, 143, 143);
+  border: none;
+  background-color: transparent;
+}
+
+.container{
+    width: 35%;
+    display:block;
+}
+.buttonAnnee{
+  padding: 0%;
+  margin: 0%;
+  background-color: transparent;
+  color:white;
+  border: none;
+  width: max-content;
+  font-size:xx-large;
+}
+.buttonMois{
+    margin: 0%;
+  background-color: transparent;
+  color:white;
+  border: none;
+  width: max-content;
+  font-size:x-large;
+}
+.buttonMois:hover{
+  color:rgba(187, 184, 183, 0.596);
+  font-size: x-large;
+  cursor: pointer;
+ 
+}
+
+.month {
+  padding:2px;
+  width: 100%;
+  background: #1abc9c;
+  text-align: center;
+  display:flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+}
+
+.year {
+  padding:2px;
+  width: 100%;
+  background: #1abc9c;
+  text-align: center;
+  display:flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+}
+
+.left{
+  width: 20%;
+  display: flex;
+  justify-content: end;
+}
+ .right{
+  display: flex;
+  width: 20%;
+  justify-content: start;
+}
+ .centre{
+   padding-top: 6px;
+  width: 50%;
+  color:white;
+  text-transform: uppercase;
+  font-size:x-large;
+  
+}
+
+
+.weekdays {
+  margin: 0;
+  padding: 5px 0;
+  background-color: #ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 12.5%;
+  color: #666;
+  text-align: center;
+}
+
+.days {
+  padding: 5px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 12.5%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+.days li .active {
+  padding: 5px;
+  border-radius: 18px;
+  background: #75e9d26e;
+  color: white !important
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+  .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+  .weekdays li, .days li {width: 12.5%;}
+  .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+  .weekdays li, .days li {width: 12.2%;}
+}
+
+ 
