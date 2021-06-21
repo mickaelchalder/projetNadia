@@ -97,7 +97,7 @@ box-shadow:5px 5px 10px white;
 	justify-self: center;
 }
 #show{
-	display: none;
+	display: block;
 }
 #flex-container-accueil{
 	display: flex;

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\FormulaireController;
+use App\Http\Controllers\NewsletterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,6 @@ Route::group(["middleware" => "web"], function(){
     
     Route::get('formulaire', [FormulaireController::class, 'create']);
     Route::post('formulaire', [FormulaireController::class, 'store']);
+    Route::get('newsletter', [NewsletterController::class, 'create']);
+    Route::post('newsletter', [NewsletterController::class, 'store']);
 });
