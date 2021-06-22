@@ -8,9 +8,9 @@
         <div class="header_link">
             <div class=" navbar ">
                 <div class="  dropdown ">
-                    <a class="dropbtn">Histoire 
+                    <span class="dropbtn">Histoire 
                       <i class="fa fa-caret-down"></i>
-                    </a>
+                    </span>
                     <div class="dropdown-content">
                       <a href="#">Bio</a>
                       <a href="#">Hommage</a>
@@ -21,15 +21,19 @@
                 <a href="index.html" class="header_cadre">Article</a>
             </div>
             <div class="header_nav ">
-                <a href="index.html" class="header_cadre">Produit & Prestation</a>
+                <a href="index.html" class="header_cadre">Prestation</a>
             </div>
-            <div class=" navbar ">
-                <div class="  dropdown ">
-                    <a class="dropbtn">Calendrier 
+            <div class=" navbarCalendar ">
+                <div class="dropdownCalendar ">
+                    <span class="dropbtn">Calendrier
                       <i class="fa fa-caret-down"></i>
-                    </a>
-                    <div class="dropdown-content">
-                      <a href="#">Bio</a>
+                    </span>
+                    <div class="dropdownCalendar-content">
+                        @if ($calendrier===true)
+                            @include('calendrier')
+                        @else
+                            @include('nextCalendrier')
+                        @endif
                     </div>
                   </div> 
             </div>
@@ -49,7 +53,7 @@
         <div class="header_overlay-content">
             <a href="index.html">Calendrier</a>
             <a href="index.html">Article</a>
-            <a href="index.html">Produit & Prestation</a>
+            <a href="index.html">Prestation</a>
             <a href="index.html">Newsletter</a>
             <a href="index.html">Contact</a>
             <a href="index.html">Bio</a>

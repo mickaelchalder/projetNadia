@@ -50,8 +50,8 @@ a:hover,a:hover #myBtn{
 }
 
 .container{
-    width: 35%;
-    display:block;
+    width: 100%;
+    
 }
 .buttonAnnee{
   padding: 0%;

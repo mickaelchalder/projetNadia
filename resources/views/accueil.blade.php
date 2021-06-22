@@ -16,7 +16,7 @@
              </span>
              </div>
 
-             </a>				
+            			
          </div>
      @endforeach
      <div id="btn-nav">

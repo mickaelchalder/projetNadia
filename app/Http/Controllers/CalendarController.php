@@ -7,6 +7,65 @@ use Illuminate\Http\Request;
 
 class CalendarController extends Controller
 {
+    public static function affichageCalendar(){
+        $calendar=CalendarController::buildCalendrier();
+        $mois=CalendarController::mois();
+        $semaine=CalendarController::semaine();
+        $nbJour=CalendarController::nombreJourMois($calendar->month,$calendar->year);
+        $premierJour=CalendarController::PremierJourDuMois($calendar->month,$calendar->year);
+        $eventa = CrudController::listedate($calendar->month,$calendar->year);
+        return [$eventa,$calendar, $mois,$semaine,$nbJour,$premierJour]; // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer
+    }
+
+    public static function affichageCalendarNextMonth(){
+        $next=$_GET['next'];
+        $calendar=CalendarController::buildCalendrier($next);
+        $newCalendrier=CalendarController::buildNextCalendrier($next);
+        $mois=CalendarController::mois();
+        $semaine=CalendarController::semaine();
+        $nbJour=CalendarController::nombreJourMois($newCalendrier->newMonth,$newCalendrier->newYear);
+        $premierJour=CalendarController::PremierJourDuMois($newCalendrier->newMonth,$newCalendrier->newYear);
+        $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
+        return view('nextCalendrier', ['nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour]); // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer
+
+    }
+    public static function affichageCalendarPrevMonth(){
+        $next=$_GET['prev'];
+        $calendar=CalendarController::buildCalendrier($next);
+        $newCalendrier=CalendarController::buildPrevCalendrier($next);
+        $mois=CalendarController::mois();
+        $semaine=CalendarController::semaine();
+        $nbJour=CalendarController::nombreJourMois($newCalendrier->newMonth,$newCalendrier->newYear);
+        $premierJour=CalendarController::PremierJourDuMois($newCalendrier->newMonth,$newCalendrier->newYear);
+        $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
+        return view('nextCalendrier', ['nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour]); // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer
+
+    }
+
+    public static function affichageCalendarNextYear(){
+        $next=$_GET['nextYear'];
+        $calendar=CalendarController::buildCalendrier($next);
+        $newCalendrier=CalendarController::buildNextYearCalendrier($next);
+        $mois=CalendarController::mois();
+        $semaine=CalendarController::semaine();
+        $nbJour=CalendarController::nombreJourMois($newCalendrier->newMonth,$newCalendrier->newYear);
+        $premierJour=CalendarController::PremierJourDuMois($newCalendrier->newMonth,$newCalendrier->newYear);
+        $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
+        return view('nextCalendrier', ['nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour]); // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer
+    
+    }
+    public static function affichageCalendarPrevYear(){
+        $next=$_GET['prevYear'];
+        $calendar=CalendarController::buildCalendrier($next);
+        $newCalendrier=CalendarController::buildPrevYearCalendrier($next);
+        $mois=CalendarController::mois();
+        $semaine=CalendarController::semaine();
+        $nbJour=CalendarController::nombreJourMois($newCalendrier->newMonth,$newCalendrier->newYear);
+        $premierJour=CalendarController::PremierJourDuMois($newCalendrier->newMonth,$newCalendrier->newYear);
+        $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
+        return view('nextCalendrier', ['nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour]); // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer    
+    }
+
     public static function buildCalendrier($post=null) {
         //création d'une fonction qui crée un objet dateime 
         $calendrier = new \DateTime(); //le backslach permet d'utiliser la fonction php

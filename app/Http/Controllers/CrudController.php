@@ -11,6 +11,15 @@ use SebastianBergmann\Type\ObjectType;
 
 class CrudController extends Controller
 {
+
+    public static function autoSuppression(){
+        $fecha=$_GET['date'];
+        $realDate=$_GET['realdate'];
+        $deadEvent=CrudController::deadEvent($realDate);
+        $event=CrudController::listeEvent($fecha);
+        return view('textFormDay',['deadEvent'=>$deadEvent,'fecha'=>$fecha,'event' => $event]);    
+    }
+
     public function ajouterEvent(Request $request){
 
         // Vérifie les conditions de l'objet

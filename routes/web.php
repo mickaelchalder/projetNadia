@@ -26,7 +26,7 @@ use App\Http\Controllers\CrudController;
 Route::group(["middleware" => "web"], function(){
 
     // Route pour la page d'accueil
-    Route::get('/', [ArticleController::class, 'listeArticle']);
+    Route::get('/', [ArticleController::class, 'Accueil_calendrier']);
 
     // Route pour aller à l'article
     Route::get('/articles/{article}', [ArticleController::class, 'getArticle']);
@@ -38,73 +38,16 @@ Route::group(["middleware" => "web"], function(){
     Route::post('newsletter', [NewsletterController::class, 'store']);
 
     
-Route::get('/', function () {
-    $calendar=CalendarController::buildCalendrier();
-    $mois=CalendarController::mois();
-    $semaine=CalendarController::semaine();
-    $nbJour=CalendarController::nombreJourMois($calendar->month,$calendar->year);
-    $premierJour=CalendarController::PremierJourDuMois($calendar->month,$calendar->year);
-    $eventa = CrudController::listedate($calendar->month,$calendar->year);
-return view('calendrier', ['eventa' => $eventa,'date' => $calendar,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour]); // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer
-})->name('calendar');
 
 
 
- Route::get('nextRoute', function () {
-    $next=$_GET['next'];
-    $calendar=CalendarController::buildCalendrier($next);
-    $newCalendrier=CalendarController::buildNextCalendrier($next);
-    $mois=CalendarController::mois();
-    $semaine=CalendarController::semaine();
-    $nbJour=CalendarController::nombreJourMois($newCalendrier->newMonth,$newCalendrier->newYear);
-    $premierJour=CalendarController::PremierJourDuMois($newCalendrier->newMonth,$newCalendrier->newYear);
-    $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
-    return view('nextCalendrier', ['nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour]); // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer
-})->name('nextRoute'); 
 
- Route::get('prevRoute', function () {
-    $next=$_GET['prev'];
-    $calendar=CalendarController::buildCalendrier($next);
-    $newCalendrier=CalendarController::buildPrevCalendrier($next);
-    $mois=CalendarController::mois();
-    $semaine=CalendarController::semaine();
-    $nbJour=CalendarController::nombreJourMois($newCalendrier->newMonth,$newCalendrier->newYear);
-    $premierJour=CalendarController::PremierJourDuMois($newCalendrier->newMonth,$newCalendrier->newYear);
-    $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
-    return view('nextCalendrier', ['nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour]); // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer
-})->name('prevRoute'); 
+ Route::get('nextRoute', [CalendarController::class, 'affichageCalendarNextMonth']); 
+ Route::get('prevRoute', [CalendarController::class, 'affichageCalendarPrevMonth']); 
+ Route::get('nextYear', [CalendarController::class, 'affichageCalendarNextYear']); 
+ Route::get('prevYear', [CalendarController::class, 'affichageCalendarPrevYear']); 
 
- Route::get('nextYear', function () {
-    $next=$_GET['nextYear'];
-    $calendar=CalendarController::buildCalendrier($next);
-    $newCalendrier=CalendarController::buildNextYearCalendrier($next);
-    $mois=CalendarController::mois();
-    $semaine=CalendarController::semaine();
-    $nbJour=CalendarController::nombreJourMois($newCalendrier->newMonth,$newCalendrier->newYear);
-    $premierJour=CalendarController::PremierJourDuMois($newCalendrier->newMonth,$newCalendrier->newYear);
-    $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
-    return view('nextCalendrier', ['nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour]); // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer
-})->name('nextYear'); 
-
- Route::get('prevYear', function () {
-    $next=$_GET['prevYear'];
-    $calendar=CalendarController::buildCalendrier($next);
-    $newCalendrier=CalendarController::buildPrevYearCalendrier($next);
-    $mois=CalendarController::mois();
-    $semaine=CalendarController::semaine();
-    $nbJour=CalendarController::nombreJourMois($newCalendrier->newMonth,$newCalendrier->newYear);
-    $premierJour=CalendarController::PremierJourDuMois($newCalendrier->newMonth,$newCalendrier->newYear);
-    $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
-    return view('nextCalendrier', ['nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour]); // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer
-})->name('prevYear'); 
-
-Route::get('event', function (){
-    $fecha=$_GET['date'];
-    $realDate=$_GET['realdate'];
-    $deadEvent=CrudController::deadEvent($realDate);
-    $event=CrudController::listeEvent($fecha);
-    return view('textFormDay',['deadEvent'=>$deadEvent,'fecha'=>$fecha,'event' => $event]);
-})->name('event'); 
+Route::get('event', [CrudController::class, 'autoSuppression']);
 
 Route::post('/calendrier',  [CrudController::class, 'ajouterEvent'] )->name('banane');
 
