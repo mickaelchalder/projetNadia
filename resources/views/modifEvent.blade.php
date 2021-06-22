@@ -45,7 +45,7 @@
             <input type="reset">
         </form>
     
-    <a href="{{route('calendar')}}">retour</a>
+    <a href="{{url('/')}}">retour</a>
 
     
 </body>

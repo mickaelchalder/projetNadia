@@ -197,7 +197,7 @@ html, body{
 	width: 100%;
 	height: 100%;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 0fr 0fr 0fr 0.2fr;
+	grid-template-rows: 1fr 1fr 1fr 0.2fr;
 	grid-template-areas:
 	"img img img"
 	"img img img"
@@ -216,7 +216,7 @@ html, body{
 	height: 60%;
 	margin: auto;
 	text-align: center;
-	margin-bottom: 75px;
+	margin-bottom: 50px;
 	margin-top: 8%;
 	line-height: 3em;
 }

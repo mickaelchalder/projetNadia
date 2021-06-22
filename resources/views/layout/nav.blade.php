@@ -1,5 +1,5 @@
 <body id="Jordan">
-    <nav class='nav'>
+     <nav class='nav'>
         
         <div class="header_logo ">
             <a href="index.html"><img src="{{asset('storage/image/trans.PNG')}}" class='header_img_logo' width="70px" height="70px" alt="logo"></a>
@@ -29,11 +29,11 @@
                       <i class="fa fa-caret-down"></i>
                     </span>
                     <div class="dropdownCalendar-content">
-                        @if ($calendrier===true)
+                         @if ($calendrier===true)
                             @include('calendrier')
                         @else
                             @include('nextCalendrier')
-                        @endif
+                        @endif 
                     </div>
                   </div> 
             </div>
@@ -62,8 +62,8 @@
         </div> 
     </div>
 
-</nav>
+</nav>  
 <a href="{{url('formulaire')}}" class="Form_icon"  ><img src="{{asset('storage/image/letter.PNG')}}" width="60px" height="60px" alt="formulaire"></a>
 
 <a href="{{url('newsletter')}}" class="Form_icon2"  ><img src="{{asset('storage/image/newsletter.PNG')}}" width="60px" height="60px" alt="newsletter"></a>
-       
+    

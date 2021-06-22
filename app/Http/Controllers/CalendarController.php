@@ -2,20 +2,13 @@
 
 namespace App\Http\Controllers; // pour désigné les chemins
 
-
+use App\Models\Articles;
+use App\Http\Controllers\ArticleController;
 use Illuminate\Http\Request;
 
 class CalendarController extends Controller
 {
-    public static function affichageCalendar(){
-        $calendar=CalendarController::buildCalendrier();
-        $mois=CalendarController::mois();
-        $semaine=CalendarController::semaine();
-        $nbJour=CalendarController::nombreJourMois($calendar->month,$calendar->year);
-        $premierJour=CalendarController::PremierJourDuMois($calendar->month,$calendar->year);
-        $eventa = CrudController::listedate($calendar->month,$calendar->year);
-        return [$eventa,$calendar, $mois,$semaine,$nbJour,$premierJour]; // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer
-    }
+    
 
     public static function affichageCalendarNextMonth(){
         $next=$_GET['next'];
@@ -26,8 +19,9 @@ class CalendarController extends Controller
         $nbJour=CalendarController::nombreJourMois($newCalendrier->newMonth,$newCalendrier->newYear);
         $premierJour=CalendarController::PremierJourDuMois($newCalendrier->newMonth,$newCalendrier->newYear);
         $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
-        return view('nextCalendrier', ['nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour]); // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer
-
+        $articles = Articles::orderBy("created_at", "desc")->paginate(9); 
+        $calendrier = false;
+        return view('accueil', ['articles' => $articles,'nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour,'calendrier'=>$calendrier]);
     }
     public static function affichageCalendarPrevMonth(){
         $next=$_GET['prev'];
@@ -38,7 +32,9 @@ class CalendarController extends Controller
         $nbJour=CalendarController::nombreJourMois($newCalendrier->newMonth,$newCalendrier->newYear);
         $premierJour=CalendarController::PremierJourDuMois($newCalendrier->newMonth,$newCalendrier->newYear);
         $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
-        return view('nextCalendrier', ['nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour]); // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer
+        $articles = Articles::orderBy("created_at", "desc")->paginate(9); 
+        $calendrier = false;
+        return view('accueil', ['articles' => $articles,'nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour,'calendrier'=>$calendrier]);
 
     }
 
@@ -51,8 +47,10 @@ class CalendarController extends Controller
         $nbJour=CalendarController::nombreJourMois($newCalendrier->newMonth,$newCalendrier->newYear);
         $premierJour=CalendarController::PremierJourDuMois($newCalendrier->newMonth,$newCalendrier->newYear);
         $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
-        return view('nextCalendrier', ['nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour]); // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer
-    
+        $articles = Articles::orderBy("created_at", "desc")->paginate(9); 
+        $calendrier = false;
+        return view('accueil', ['articles' => $articles,'nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour,'calendrier'=>$calendrier]);
+   
     }
     public static function affichageCalendarPrevYear(){
         $next=$_GET['prevYear'];
@@ -63,7 +61,10 @@ class CalendarController extends Controller
         $nbJour=CalendarController::nombreJourMois($newCalendrier->newMonth,$newCalendrier->newYear);
         $premierJour=CalendarController::PremierJourDuMois($newCalendrier->newMonth,$newCalendrier->newYear);
         $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
-        return view('nextCalendrier', ['nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour]); // 1er  calendar est le  nom à insérer dans la view correspond à la variable récupérer    
+        $articles = Articles::orderBy("created_at", "desc")->paginate(9); 
+        $calendrier = false;
+        return view('accueil', ['articles' => $articles,'nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour,'calendrier'=>$calendrier]);
+   
     }
 
     public static function buildCalendrier($post=null) {

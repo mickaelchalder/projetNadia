@@ -10,11 +10,6 @@
     <h1>Events du {{$fecha}} :</h1>
    
     
-   
-   
-
-    <h1>{{$event->test}}</h1>
-    <br>
     
     @forelse ( $event->all as $events )
     
@@ -54,7 +49,7 @@
                 <input type="reset">
             </form>
     </fieldset>
-    <a href="{{route('calendar')}}">retour</a>
+    <a href="{{url('/')}}">retour</a>
         
     
     
