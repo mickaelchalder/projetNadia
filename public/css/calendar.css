@@ -155,9 +155,10 @@ a:hover,a:hover #myBtn{
 
 .days li .active {
   color: rgb(255, 255, 255);
-  border: none;
+  padding: 0.2em 0px 0.2em 0px;
   background-color: transparent;
   cursor: pointer;
+  border-bottom: 0.1px solid beige;
 }
 
 /* Add media queries for smaller screens */
