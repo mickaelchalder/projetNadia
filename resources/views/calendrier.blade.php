@@ -31,7 +31,7 @@
             </div>
         </div>
         
-        <div class="year"> 
+        {{-- <div class="year"> 
             
             <div class="left">
                 <form action='{{ url('prevRoute') }} ' method='get' >
@@ -50,7 +50,7 @@
                     <input class='next buttonMois' type='submit'  value='&#10095;' >
                 </form>
             </div>
-        </div>
+        </div> --}}
         
         <ul class="weekdays">
             @for ($i = 1;$i <= 7;$i++,$premierJour++)
