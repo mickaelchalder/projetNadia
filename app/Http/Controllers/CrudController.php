@@ -44,7 +44,7 @@ class CrudController extends Controller
             // Sauvegarder une image
             $request->file('img')->storePubliclyAs('public/image/', $image);
             }else{
-                $image = "1623248090logo.jpg";
+                $image = "logo.jpg";
             }
             // Création d'une instance
             $event = new Calendars();
@@ -133,8 +133,11 @@ class CrudController extends Controller
             $event = $request->id;
             $img = $request->img;
             $fecha=$request->date;
+
+            if($request->img != "logo.jpg"){
             // Suppression l'image dans le dossier image
             Storage::delete('public/image/'.$img);
+            }
             // Requête SQL DELETE
             Calendars::where('id',  $event)->delete();
             // Redirige vers l'accueil

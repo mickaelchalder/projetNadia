@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Models\Articles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\FormulaireController;
@@ -29,15 +29,16 @@ Route::group(["middleware" => "web"], function(){
     Route::get('/', [ArticleController::class, 'Accueil_calendrier']);
 
     // Route pour aller à l'article
-    Route::get('/articles/{article}', [ArticleController::class, 'getArticle']);
+    Route::get('/modifArticles/{article}', [ArticleController::class, 'getArticle']);
 
     
     Route::get('formulaire', [FormulaireController::class, 'create']);
     Route::post('formulaire', [FormulaireController::class, 'store']);
     Route::get('newsletter', [NewsletterController::class, 'create']);
+
     Route::post('newsletter', [NewsletterController::class, 'store']);
 
-    
+    Route::get('AddArticle', [ArticleController::class, 'listeArticle'])->name('add');
 
 
 
@@ -58,10 +59,20 @@ Route::put('/modifEvent', [CrudController::class, 'modifierEvent'] )->name('modi
 
 Route::put('/modifier', [CrudController::class, 'edit'] )->name('modifier'); 
  
+// Route pour ajouter un article
+Route::post('/articles', [ArticleController::class, 'ajouterArticle']);
+
+// Route pour supprimer un article
+Route::delete('/articles/{article}', [ArticleController::class, 'supprimerArticle']);
+
+// Route pour modifier un article
+Route::put('/modifArticle', [ArticleController::class, 'modifierArticle']);
+
+// Route pour aller à la page de modification de l'article
+Route::get('/articles/{article}', [ArticleController::class, 'edit']);
+    
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', [ArticleController::class, 'Accueil_calendrier']);
 
 require __DIR__.'/auth.php';

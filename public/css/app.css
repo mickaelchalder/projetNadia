@@ -7,6 +7,8 @@ html, body{
 	font-family: 'Viaoda Libre', cursive;
 	letter-spacing: 0.5em;
 }
+.h1-article{
+}
 .titre-article{
 	display: block;
 	position: absolute;
@@ -71,10 +73,6 @@ box-shadow:5px 5px 10px white;
 .logoArrow:hover{
 	background-color: rgb(172, 164, 164);
 	border-radius: 50%;
-}
-#arrowDown{
-	width: 40%;
-	
 }
 .titreArticle{
 	margin: 20px;
@@ -160,10 +158,6 @@ html, body{
 	text-transform: uppercase;
 	width: 35%;
 }
-#arrowDown{
-	width: 35%;
-	
-}
 .cadreImage{
 	height: 400px;
 }
@@ -190,6 +184,30 @@ html, body{
 .logoArrow{
 	width: 80px;
 	height:80px;
+}
+.h1-article{
+	text-align: center;
+	font-size: xx-large;
+	margin-top: 20px;
+}
+.article{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 0fr 1fr;
+	grid-template-areas:
+	"img2 titre"
+	"img2 message";
+	margin: 5%;
+	padding: 3%;
+	box-shadow: 20px 20px 10px black;
+	margin-bottom: 8%;
+	text-align: center;
+	letter-spacing: 0.2em;
+	line-height: 1.2em;
+	background-color: rgb(178,34,34);
+}
+.champ{
+	margin-top: 20px;
 }
 
 #flex-container-article{
@@ -234,18 +252,4 @@ html, body{
 	grid-area: btn;
 	padding-bottom: auto;
 }
-#article{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 0fr 1fr;
-	grid-template-areas:
-	"img2 titre"
-	"img2 message";
-	margin: 5%;
-	padding: 3%;
-	box-shadow: 20px 20px 10px black;
-	margin-bottom: 8%;
-}
-
-
 }

@@ -1,7 +1,7 @@
 @include('layout.header')
 
 				<body>
-				<div id="article">
+				<div class="article">
 				<div type="hidden" name="id" value="{{$articles->id}}"></div>
 				<img src="{{ asset('storage/image/'.$articles->img) }}" class="cadreImage2">
 				<a href="javascript:history.back()" class="btn-retour lien-color">retour</a>
