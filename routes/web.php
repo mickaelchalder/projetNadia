@@ -1,8 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Models\Articles;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\FormulaireController;
@@ -59,3 +59,9 @@ Route::put('/modifEvent', [CrudController::class, 'modifierEvent'] )->name('modi
 Route::put('/modifier', [CrudController::class, 'edit'] )->name('modifier'); 
  
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
