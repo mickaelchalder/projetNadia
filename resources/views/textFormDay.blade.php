@@ -4,11 +4,11 @@
     @auth
      <fieldset>
         <legend>Créer un event </legend>
-            <form method="post" action="{{route("banane")}}" enctype="multipart/form-data">
+            <form method="post" action="{{route("creation")}}" enctype="multipart/form-data">
                 @csrf
                 <div class="article">
                 <input type="hidden" name="date" value="{{$fecha}}">
-                <label for="titre">Titre de l'article : </label><input type="text" id="titre" name="titre" class="titreArticle">
+                <label for="titre">Titre de l'article : </label><input type="text" id="titre" name="titre" class="titreArticle"  >
                 <input type="file" name="img" class="cadreImage2">
                 <label for="message">Message : </label><textarea type="text" name="message" class="message"></textarea>
                 <input type="submit" name="send" value="Valider">
@@ -30,8 +30,8 @@
         <form method="post" action="{{url("supprimer")}}">
             @csrf
             {{method_field('DELETE')}}
-            {{-- <input type="hidden" name="date" value="{{$fecha}}">
-            <input type="hidden" name="img" value="{{$event->img}}"> --}}
+            <input type="hidden" name="date" value="{{$fecha}}">
+            <input type="hidden" name="img" value="{{$event->img}}">
             <input type="hidden" name="id" value="{{$event->id}}">
             <input type="submit" name="send" value="supprimer">
         </form>

@@ -7,7 +7,8 @@
     <div class="month"> 
         
         <div class="left">
-            <form action='{{ url('prevRoute') }} ' method='get' >
+            <form action='{{ url('prevRoute') }} ' method='post' >
+                @csrf
                 <input type='hidden' name='prev' value='{{$date->date}}'>
                 <input class='prev buttonMois' type='submit' value='&#10094;' >
                 </form>
@@ -24,7 +25,8 @@
             </div>
             
             <div class="right">    
-                <form action='{{ url('nextRoute') }}' method='get' >
+                <form action='{{ url('nextRoute') }}' method='post' >
+                    @csrf
                     <input type='hidden' name='next' value='{{$date->date}}'>
                     <input class='next buttonMois' type='submit'  value='&#10095;' >
                 </form>
@@ -34,7 +36,8 @@
         {{-- <div class="year"> 
             
             <div class="left">
-                <form action='{{ url('prevRoute') }} ' method='get' >
+                <form action='{{ url('prevRoute') }} ' method='post' >
+                    @csrf
                     <input type='hidden' name='prev' value='{{$date->date}}'>
                     <input class='prev buttonMois' type='submit' value='&#10094;' >
                 </form>
@@ -45,7 +48,8 @@
             </div>
             
             <div class="right">    
-                <form action='{{ url('nextRoute') }}' method='get' >
+                <form action='{{ url('nextRoute') }}' method='post' >
+                    @csrf
                     <input type='hidden' name='next' value='{{$date->date}}'>
                     <input class='next buttonMois' type='submit'  value='&#10095;' >
                 </form>
@@ -65,13 +69,15 @@
                 @if ($x == $date->day ) 
                 
                     @if (isset($eventa) and in_array($x, $eventa))
-                        <form action='{{ url('event') }} ' method='get' >
-                            <input type='hidden' name='realDate' value='{{date("Y-m-d", mktime(0, 0, 0, $date->month, $date->day, $date->year))}}'>
+                        <form action='{{ url('event') }} ' method='post' >
+                            @csrf
+                            <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $date->month, $date->day, $date->year))}}'>
                             <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $date->month, $x, $date->year))}}'>
                             <span class='active'><input class=' event' type='submit' value='{{$x}}' ></span>
                         </form>
                     @else
-                        <form action='{{ url('event') }} ' method='get' >
+                        <form action='{{ url('event') }} ' method='post' >
+                            @csrf
                             <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $date->month, $date->day, $date->year))}}'>
                             <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $date->month, $x, $date->year))}}'>
                             <span class='active'><input class='alldays' type='submit' value='{{$x}}' ></span>
@@ -81,13 +87,15 @@
                 @elseif ($x > $date->day ) 
                 
                     @if (isset($eventa) and in_array($x, $eventa))
-                        <form action='{{ url('event') }} ' method='get' >
+                        <form action='{{ url('event') }} ' method='post' >
+                            @csrf
                             <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $date->month, $date->day, $date->year))}}'>
                             <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $date->month, $x, $date->year))}}'>
                             <input class=' event' type='submit' value='{{$x}}' >
                         </form>
                     @else
-                        <form action='{{ url('event') }} ' method='get' >
+                        <form action='{{ url('event') }} ' method='post' >
+                            @csrf
                             <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $date->month, $date->day, $date->year))}}'>
                             <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $date->month, $x, $date->year))}}'>
                             <input class='alldays' type='submit' value='{{$x}}' >

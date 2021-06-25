@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NewsletterRequest extends FormRequest
+class requestAjoutEvent extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -12,7 +12,8 @@ class NewsletterRequest extends FormRequest
      * @return bool
      */
     public function authorize()
-    {
+    {   
+        
         return true;
     }
 
@@ -24,7 +25,12 @@ class NewsletterRequest extends FormRequest
     public function rules()
     {
         return [
-            'fecha' => 'required|date_format:"Y-m-d"',
+            
+          
+            'date' => 'required|date_format:"Y-m-d"',
+            'titre' => 'required|max:255',
+            'message' => 'required',
+            'img' => 'image|mimes:jpg,png,jpeg,gif|max:50000|dimensions:min_width=100,min_height=100,max_width=10000,max_height=10000',
         ];
     }
 }

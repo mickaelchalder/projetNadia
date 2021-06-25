@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NewsletterRequest extends FormRequest
+class AutosuppRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class NewsletterRequest extends FormRequest
     public function rules()
     {
         return [
-            'fecha' => 'required|date_format:"Y-m-d"',
+            'date' => 'required|date_format:"Y-m-d"',
+            'realdate' => 'required|date_format:"Y-m-d"',
         ];
     }
 }

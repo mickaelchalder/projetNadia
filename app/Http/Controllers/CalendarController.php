@@ -5,13 +5,15 @@ namespace App\Http\Controllers; // pour désigné les chemins
 use App\Models\Articles;
 use App\Http\Controllers\ArticleController;
 use Illuminate\Http\Request;
+use App\Http\Requests\NextRequest;
+use App\Http\Requests\PrevRequest;
 
 class CalendarController extends Controller
 {
     
 
-    public static function affichageCalendarNextMonth(){
-        $next=$_GET['next'];
+    public static function affichageCalendarNextMonth(NextRequest $request){
+        $next=$request->next;
         $calendar=CalendarController::buildCalendrier($next);
         $newCalendrier=CalendarController::buildNextCalendrier($next);
         $mois=CalendarController::mois();
@@ -23,22 +25,22 @@ class CalendarController extends Controller
         $calendrier = false;
         return view('accueil', ['articles' => $articles,'nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour,'calendrier'=>$calendrier]);
     }
-    public static function affichageCalendarPrevMonth(){
-        $next=$_GET['prev'];
-        $calendar=CalendarController::buildCalendrier($next);
-        $newCalendrier=CalendarController::buildPrevCalendrier($next);
+    public static function affichageCalendarPrevMonth(PrevRequest $request){
+        $prev=$request->prev;
+        $calendar=CalendarController::buildCalendrier($prev);
+        $newCalendrier=CalendarController::buildPrevCalendrier($prev);
         $mois=CalendarController::mois();
         $semaine=CalendarController::semaine();
         $nbJour=CalendarController::nombreJourMois($newCalendrier->newMonth,$newCalendrier->newYear);
         $premierJour=CalendarController::PremierJourDuMois($newCalendrier->newMonth,$newCalendrier->newYear);
-        $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
+        $prevEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
         $articles = Articles::orderBy("created_at", "desc")->paginate(9); 
         $calendrier = false;
-        return view('accueil', ['articles' => $articles,'nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour,'calendrier'=>$calendrier]);
+        return view('accueil', ['articles' => $articles,'nextEventa' => $prevEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour,'calendrier'=>$calendrier]);
 
     }
 
-    public static function affichageCalendarNextYear(){
+    /* public static function affichageCalendarNextYear(){
         $next=$_GET['nextYear'];
         $calendar=CalendarController::buildCalendrier($next);
         $newCalendrier=CalendarController::buildNextYearCalendrier($next);
@@ -51,8 +53,8 @@ class CalendarController extends Controller
         $calendrier = false;
         return view('accueil', ['articles' => $articles,'nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour,'calendrier'=>$calendrier]);
    
-    }
-    public static function affichageCalendarPrevYear(){
+    } */
+    /* public static function affichageCalendarPrevYear(){
         $next=$_GET['prevYear'];
         $calendar=CalendarController::buildCalendrier($next);
         $newCalendrier=CalendarController::buildPrevYearCalendrier($next);
@@ -65,7 +67,7 @@ class CalendarController extends Controller
         $calendrier = false;
         return view('accueil', ['articles' => $articles,'nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour,'calendrier'=>$calendrier]);
    
-    }
+    } */
 
     public static function buildCalendrier($post=null) {
         //création d'une fonction qui crée un objet dateime 
@@ -105,7 +107,7 @@ class CalendarController extends Controller
         return $newCalendrier;
 
     }
-    public static function buildNextYearCalendrier($post,$id=null) {
+    /* public static function buildNextYearCalendrier($post,$id=null) {
 
         $newCalendrier = new \Datetime($post); //backslach pour faire comprendre que c'est une fonction 
         $newCalendrier->add(new \DateInterval('P1Y')); //fonction qui ajoute 1an
@@ -115,8 +117,8 @@ class CalendarController extends Controller
         $newCalendrier->newDay = $newCalendrier->format('d');
         return $newCalendrier;
 
-    }
-    public static function buildPrevYearCalendrier($post,$id=null) {
+    } */
+   /*  public static function buildPrevYearCalendrier($post,$id=null) {
 
         $newCalendrier = new \Datetime($post); //backslach pour faire comprendre que c'est une fonction 
         $newCalendrier->sub(new \DateInterval('P1Y')); //fonction qui retire 1an
@@ -126,7 +128,7 @@ class CalendarController extends Controller
         $newCalendrier->newDay = $newCalendrier->format('d');
         return $newCalendrier;
 
-    }
+    } */
 
 
 

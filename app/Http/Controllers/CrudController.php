@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AutosuppRequest;
+use App\Http\Requests\requestAjoutEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
@@ -9,32 +11,20 @@ use App\Models\Calendars;
 use Illuminate\Support\Facades\Storage;
 use SebastianBergmann\Type\ObjectType;
 
+
 class CrudController extends Controller
 {
 
-    public static function autoSuppression(){
-        $fecha=$_GET['date'];
-        $realDate=$_GET['realdate'];
+    public static function autoSuppression(AutosuppRequest $request){
+        $fecha=$request->date;
+        $realDate=$request->realdate;
         $deadEvent=CrudController::deadEvent($realDate);
         $event=CrudController::listeEvent($fecha);
         return view('textFormDay',['deadEvent'=>$deadEvent,'fecha'=>$fecha,'event' => $event]);    
     }
 
-    public function ajouterEvent(Request $request){
+    public function ajouterEvent(requestAjoutEvent $request){
 
-        // Vérifie les conditions de l'objet
-        $validator = Validator::make($request->all(), [
-            'date' => 'required|date_format:"Y-m-d"',
-            'titre' => 'required|max:255',
-            'message' => 'required',
-            'img' => 'image|mimes:jpg,png,jpeg,gif|max:50000|dimensions:min_width=100,min_height=100,max_width=10000,max_height=10000',
-            ]);
-
-        // En cas d'erreurs, il redirige vers la page d'accueil
-        if($validator->fails()){
-            // $validator->fails();
-            return redirect('/')->withInput($request->all())->withErrors($validator);
-        };
              // Vérifie s'il y a un fichier
         if ($request->hasFile('img')) {
 
@@ -47,19 +37,19 @@ class CrudController extends Controller
                 $image = "logo.jpg";
             }
             // Création d'une instance
-            $event = new Calendars();
-            // Assignation des attributs
-            $event->date = $request->date;
-            $event->titre = $request->titre;
-            $event->img = $image;
-            $event->message = $request->message;
-            // Requête INSERT INTO vers la BDD
-            $event->save();
+            $event = new Calendars();   
+                $event->date = $request->date;
+                $event->titre = $request->titre;
+                $event->img = $image;
+                $event->message = $request->message;
+            // Assignation des attributs                
+                $event->save();
+                $date =  $event->date;
+                $event=FormulaireController::news($date);
+                return view('test')->with($event);
             
-            $event=CrudController::listeEvent($event->date);
-            return view('textFormDay',['fecha'=>$event->date,'event' => $event]);
-            
-        }
+    }
+
 
         public function edit(Request $request){
             $id = $request->id;

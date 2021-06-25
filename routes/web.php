@@ -34,23 +34,21 @@ Route::group(["middleware" => "web"], function(){
     
     Route::get('formulaire', [FormulaireController::class, 'create']);
     Route::post('formulaire', [FormulaireController::class, 'store']);
-    Route::get('newsletter', [NewsletterController::class, 'create']);
+    Route::post('newsletter', [FormulaireController::class, 'news']);
 
-    Route::post('newsletter', [NewsletterController::class, 'store']);
 
     Route::get('AddArticle', [ArticleController::class, 'listeArticle'])->name('add');
 
 
 
 
- Route::get('nextRoute', [CalendarController::class, 'affichageCalendarNextMonth']); 
- Route::get('prevRoute', [CalendarController::class, 'affichageCalendarPrevMonth']); 
- Route::get('nextYear', [CalendarController::class, 'affichageCalendarNextYear']); 
- Route::get('prevYear', [CalendarController::class, 'affichageCalendarPrevYear']); 
+ Route::post('nextRoute', [CalendarController::class, 'affichageCalendarNextMonth']); 
+ Route::post('prevRoute', [CalendarController::class, 'affichageCalendarPrevMonth']); 
+ /* Route::get('nextYear', [CalendarController::class, 'affichageCalendarNextYear']); 
+ Route::get('prevYear', [CalendarController::class, 'affichageCalendarPrevYear']);  */
 
-Route::get('event', [CrudController::class, 'autoSuppression']);
-
-Route::post('/calendrier',  [CrudController::class, 'ajouterEvent'] )->name('banane');
+Route::post('event', [CrudController::class, 'autoSuppression']);
+Route::post('/calendrier',  [CrudController::class, 'ajouterEvent'] )->name('creation');
 
 
 Route::delete('/supprimer', [CrudController::class, 'supprimerEvent'] )->name('supprimer'); 
