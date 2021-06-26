@@ -22,9 +22,9 @@ class FormulaireController extends Controller
         $tab[] = $var;
         $sendNewsletter = DB::table('Newsletter')->select('email')->get();
         Mail::to($sendNewsletter)
-        ->send(new Newsletter($tab));
+        ->send(new Newsletter($tab)); 
 
-        return 'ok';
+       
     }
     public  function store(ContactRequest $request)
     {

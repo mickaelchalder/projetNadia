@@ -21,6 +21,7 @@
     @forelse ( $event->all as $events )
     
         <div class="article">
+        
         <h1 class="titreArticle">{{$events->titre}}</h1>
         <br>
         <img src="{{ asset('storage/image/'.$events->img) }}" class="cadreImage2">
@@ -31,14 +32,15 @@
             @csrf
             {{method_field('DELETE')}}
             <input type="hidden" name="date" value="{{$fecha}}">
-            <input type="hidden" name="img" value="{{$event->img}}">
-            <input type="hidden" name="id" value="{{$event->id}}">
+            <input type="hidden" name="img" value="{{$events->img}}">
+            <input type="hidden" name="id" value="{{$events->id}}">
             <input type="submit" name="send" value="supprimer">
         </form>
         <form method="post" action="{{url("modifier")}}">
             @csrf
             {{method_field('PUT')}}
-            <input type="hidden" name="id" value="{{$event->id}}">
+            <input type="hidden" name="date" value="{{$fecha}}">
+            <input type="hidden" name="id" value="{{$events->id}}">
             <input type="submit" name="send" value="modifier">
         </form>
         @endauth

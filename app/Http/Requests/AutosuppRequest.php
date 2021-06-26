@@ -25,7 +25,7 @@ class AutosuppRequest extends FormRequest
     {
         return [
             'date' => 'required|date_format:"Y-m-d"',
-            'realdate' => 'required|date_format:"Y-m-d"',
+            'realdate' => 'date_format:"Y-m-d"',
         ];
     }
 }

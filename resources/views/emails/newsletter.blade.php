@@ -1,7 +1,7 @@
 @include('layout.header')
 
   <body>
-    <h2>Un nouvel évenement a été ajouté </h2>
+    <h2>Un nouvel évenement a été ajouté pour la date du {{ $newsletter['0'] }}</h2>
 
     <ul>
       
