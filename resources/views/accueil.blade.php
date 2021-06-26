@@ -9,7 +9,7 @@
     <span id="show">
     <div id="flex-container-article">
      @foreach($articles as $article)
-         <div class="positionTitre"><a href="{{url('articles/'.$article->id)}}"><img src="{{ asset('storage/image/'.$article->img) }}" class="cadreImage">
+         <div class="positionTitre"><a href="{{url('modifArticles/'.$article->id)}}"><img src="{{ asset('storage/image/'.$article->img) }}" class="cadreImage">
              <div class="voirArticle">
              <span class="flex-container-titre-image titre-article">{{$article->titre}}
               <span class="articleSmartphone">  Voir l'article</span>
