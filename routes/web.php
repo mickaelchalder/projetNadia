@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Articles;
+use App\Models\Produit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
@@ -9,6 +10,8 @@ use App\Http\Controllers\FormulaireController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\CrudController;
+use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\HommageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +37,9 @@ Route::group(["middleware" => "web"], function(){
     
     Route::get('formulaire', [FormulaireController::class, 'create']);
     Route::post('formulaire', [FormulaireController::class, 'store']);
-    Route::post('newsletter', [FormulaireController::class, 'news']);
+    
+    Route::post('newsletter', [FormulaireController::class, 'store']);
+    Route::get('newsletter', [NewsletterController::class, 'create']);
 
 
     Route::get('AddArticle', [ArticleController::class, 'listeArticle'])->name('add');
@@ -42,13 +47,14 @@ Route::group(["middleware" => "web"], function(){
 
 
 
- Route::post('nextRoute', [CalendarController::class, 'affichageCalendarNextMonth']); 
- Route::post('prevRoute', [CalendarController::class, 'affichageCalendarPrevMonth']); 
- /* Route::get('nextYear', [CalendarController::class, 'affichageCalendarNextYear']); 
- Route::get('prevYear', [CalendarController::class, 'affichageCalendarPrevYear']);  */
-
-Route::post('event', [CrudController::class, 'autoSuppression']);
-Route::post('/calendrier',  [CrudController::class, 'ajouterEvent'] )->name('creation');
+    Route::post('nextRoute', [CalendarController::class, 'affichageCalendarNextMonth']); 
+    Route::post('prevRoute', [CalendarController::class, 'affichageCalendarPrevMonth']); 
+    /* Route::get('nextYear', [CalendarController::class, 'affichageCalendarNextYear']); 
+    Route::get('prevYear', [CalendarController::class, 'affichageCalendarPrevYear']);  */
+   
+   Route::post('event', [CrudController::class, 'autoSuppression']);
+   Route::post('/calendrier',  [CrudController::class, 'ajouterEvent'] )->name('creation');
+   
 
 
 Route::delete('/supprimer', [CrudController::class, 'supprimerEvent'] )->name('supprimer'); 
@@ -63,12 +69,46 @@ Route::post('/articles', [ArticleController::class, 'ajouterArticle']);
 // Route pour supprimer un article
 Route::delete('/articles/{article}', [ArticleController::class, 'supprimerArticle']);
 
+// Route pour aller à la page de modification de l'article
+Route::get('/articles/{article}', [ArticleController::class, 'edit'])->name('edit');
+
 // Route pour modifier un article
 Route::put('/modifArticle', [ArticleController::class, 'modifierArticle']);
-
-// Route pour aller à la page de modification de l'article
-Route::get('/articles/{article}', [ArticleController::class, 'edit']);
     
+// Route pour la page d'accueil
+Route::get('/listeProduit', [ProduitController::class, 'listeProduit'])->name('listeP');
+
+// Route pour la page d'accueil
+Route::get('/listeHommage', [HommageController::class, 'listeHommage'])->name('listeH');
+
+// Route pour ajouter un hommage
+Route::post('/addHommage', [HommageController::class, 'ajouterHommage']);
+
+
+// Route pour modifier un hommage
+Route::put('/modifHommage', [HommageController::class, 'modifierHommage']);
+
+// Route pour aller à la page de modification de l'hommage
+Route::get('/hommages/{hommage}', [HommageController::class, 'editHommage'])->name('editHommage');
+
+// Route pour supprimer un hommage
+Route::delete('/hommages/{hommage}', [HommageController::class, 'supprimerHommage']);
+
+
+Route::post('/addProduit', [ProduitController::class, 'ajouterProduit']);
+
+// Route pour supprimer un hommage
+Route::delete('/produits/{produit}', [ProduitController::class, 'supprimerProduit']);
+
+// Route pour aller à la page de modification du produit
+Route::get('/modifProduits/{produit}', [ProduitController::class, 'editProduit'])->name('editProduit');
+
+// Route pour aller à l'article
+Route::get('/produits/{produit}', [ProduitController::class, 'getProduit'])->name('getProduit');
+
+// Route pour modifier un hommage
+Route::put('/modifProduit', [ProduitController::class, 'modifierProduit']);
+
 });
 
 Route::get('/dashboard', [ArticleController::class, 'Accueil_calendrier']);

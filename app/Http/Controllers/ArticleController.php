@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Articles;
 use App\Http\Controllers\CalendarController;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\ArticleRequest;
 
 class ArticleController extends Controller
 {
@@ -52,20 +53,7 @@ class ArticleController extends Controller
       *                          ["$request" est l'objet récupéré du formulaire]
       * @return [view]           [retour à la page d'accueil après l'enregistrement de l'article dans la BDD]
       */
-    public function ajouterArticle(request $request){
-
-        // Vérifie les conditions de l'objet
-        $validator = Validator::make($request->all(), [
-            'titre' => 'required|max:255',
-            'img' => 'image|mimes:jpg,png,jpeg,gif|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
-            'message' => 'required',
-            ]);
-
-        // En cas d'erreurs, il redirige vers la page d'accueil
-        if($validator->fails()){
-            $validator->fails();
-            return redirect()->route('add')->withInput();
-        };
+    public function ajouterArticle(ArticleRequest $request){
 
         // Vérifie s'il y a un fichier
         if ($request->hasFile('img')) {
@@ -98,19 +86,7 @@ class ArticleController extends Controller
       *                          d'utiliser avec le use "use Illuminate\Http\Request" avec Laravel]
      * @return [view]           [retour à la page d'accueil après la modification de l'article dans la BDD]
      */
-    public function modifierArticle(Request $request){
-
-        $validator = Validator::make($request->all(), [
-            'titre' => 'required|max:255',
-            'img' => 'image|mimes:jpg,png,jpeg,gif|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
-            'message' => 'required',
-            ]);
-
-        // En cas d'erreurs, il redirige vers la page d'accueil
-        if($validator->fails()){
-            return redirect()->route('add')->withInput($request->except('key'))
-            ->withErrors($validator);
-        }
+    public function modifierArticle(ArticleRequest $request){
 
         // Récupération d'un tuple (=entrée) avec l'ID dans une BDD 
         $article = Articles::find($request->id);

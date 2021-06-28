@@ -23,9 +23,9 @@ class FormulaireController extends Controller
         $sendNewsletter = DB::table('Newsletter')->select('email')->get();
         Mail::to($sendNewsletter)
         ->send(new Newsletter($tab)); 
-
        
     }
+    
     public  function store(ContactRequest $request)
     {
         Mail::to('chalder@hotmail.fr')

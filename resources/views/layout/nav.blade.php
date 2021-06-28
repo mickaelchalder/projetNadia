@@ -13,7 +13,7 @@
                    </span>
                    <div class="dropdown-content">
                      <a href="#">Bio</a>
-                     <a href="#">Hommage</a>
+                     <a href="{{route('listeH')}}">Hommage</a>
                    </div>
                  </div> 
            </div>
@@ -21,12 +21,13 @@
                <a href="index.html" class="header_cadre">Article</a>
            </div>
            <div class="header_nav ">
-               <a href="index.html" class="header_cadre">Prestation</a>
+               <a href="{{route('listeP')}}" class="header_cadre">Prestation</a>
            </div>
            <div class=" navbarCalendar ">
                <div class="dropdownCalendar ">
-                   <span class="dropbtn">Events
-                   </span>
+                    <a class="dropbtn">Events
+
+                   </a>
                    <div class="dropdownCalendar-content">
                         @if ($calendrier===true)
                            @include('calendrier')
@@ -76,8 +77,28 @@
            <a href="index.html">Newsletter</a>
            <a href="index.html">Contact</a>
            <a href="index.html">Bio</a>
-           <a href="index.html">Hommage</a>
-           <a href="index.html">Login</a>
+           <a href="{{route('listeH')}}">Hommage</a>
+           @if (Route::has('login'))
+               <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                   @auth
+                   @else
+                       <a href="{{ route('login') }}" class="header_cadre">Connexion</a>
+                       
+@if (Route::has('register'))
+<a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+@endif
+                   @endauth
+               </div>
+           @endif
+           @auth
+           <form method="POST" action="{{ route('logout') }}">
+               @csrf
+               <button type="submit" class="btn-logging">
+                   {{ __('Déconnecter') }}
+               </button>
+           </form>
+           <button class="btn-logging "><a href="{{url('AddArticle')}}" class="btn-logging ">Ajouter un article</a></button>
+           @endauth
        </div> 
    </div>
 
