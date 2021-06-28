@@ -24,7 +24,8 @@ class NewsletterRequest extends FormRequest
     public function rules()
     {
         return [
-            'fecha' => 'required|date_format:"Y-m-d"',
+            'name' => 'required|max:255',
+            'email' => 'required|email',
         ];
     }
 }

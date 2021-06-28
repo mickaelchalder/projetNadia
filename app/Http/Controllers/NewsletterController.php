@@ -18,21 +18,13 @@ class NewsletterController extends Controller
 
     public function store(NewsletterRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
-            'email' => 'required|email',
-            ]);
-
-        if($validator->fails()){
-            $validator->fails();
-            return redirect('/')->withInput();
-        };
+        
 
         $newsletter = new Newsletter();
 
         $newsletter->name = $request->name;
         $newsletter->email = $request->email;
-        $newsletter->save();
+        $newsletter->save(); 
 
         return view('confirm');
     }

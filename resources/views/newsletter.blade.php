@@ -3,7 +3,7 @@
 <div  class="Form_overlay">
     <a href="{{url('/')}}" class="Form_closebtn" >&times;</a>
     <div class="Form_overlay-content">
-        <form  action="{{ url('newsletter') }}" method="post">
+        <form  action="{{ url('abbonnement') }}" method="post">
           @csrf
             <div >
                 <div class="Form_titre">
