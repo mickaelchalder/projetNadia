@@ -72,14 +72,14 @@
                                         @csrf
                                         <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $varMois, $calendar->day, $calendar->year))}}'>
                                         <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $newDate->newMonth, $x, $newDate->newYear))}}'>
-                                        <span class='active'><input class='event' type='submit' value='{{$x}}' style="color: rgb(9, 131, 45)" ></span>
+                                        <span class='active'><input class='event' type='submit' value='{{$x}}'  ></span>
                                     </form>
                                 @else
                                     <form action='{{ url('event') }} ' method='post' >
                                         @csrf
                                         <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $varMois, $calendar->day, $calendar->year))}}'>
                                         <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $newDate->newMonth, $x, $newDate->newYear))}}'>
-                                        <span class='active'><input class='alldays' type='submit' value='{{$x}}' style="color: rgb(9, 131, 45)"></span>
+                                        <span class='active'><input class='alldays' type='submit' value='{{$x}}'></span>
                                     </form>
                                 @endif
 
@@ -90,7 +90,7 @@
                                         @csrf
                                         <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $varMois, $calendar->day, $calendar->year))}}'>
                                         <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $newDate->newMonth, $x, $newDate->newYear))}}'>
-                                        <input class='event' type='submit' value='{{$x}}' style="color: burlywood">
+                                        <input class='event' type='submit' value='{{$x}}' >
                                     </form>
                                 @else
                                     <form action='{{ url('event') }} ' method='post' >
