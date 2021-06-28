@@ -131,7 +131,7 @@ a:hover,a:hover #myBtn{
 
 .weekdays li {
   display: inline-block;
-  width: 12.5%;
+  width: 11.5%;
   color: rgb(255, 255, 255);
   text-align: center;
 }
@@ -146,7 +146,7 @@ a:hover,a:hover #myBtn{
 .days li {
   list-style-type: none;
   display: inline-block;
-  width: 12.5%;
+  width: 12.1%;
   text-align: center;
   margin-bottom: 5px;
   font-size:12px;
@@ -163,16 +163,14 @@ a:hover,a:hover #myBtn{
 
 /* Add media queries for smaller screens */
 @media screen and (max-width:1444px) {
-  .weekdays li, .days li {width: 12.1%;}
+  .weekdays li, .days li {width: 11%;}
 }
 
 @media screen and (max-width: 1182px) {
-  .weekdays li, .days li {width: 11.5%;}
+  .weekdays li, .days li {width: 10%;}
   .days li .active {padding: 2px;}
 }
 
-@media screen and (max-width: 290px) {
-  .weekdays li, .days li {width: 12.2%;}
-}
+
 
  

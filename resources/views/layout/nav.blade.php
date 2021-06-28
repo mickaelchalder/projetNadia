@@ -25,8 +25,7 @@
            </div>
            <div class=" navbarCalendar ">
                <div class="dropdownCalendar ">
-                   <span class="dropbtn">Calendrier
-                     <i class="fa fa-caret-down"></i>
+                   <span class="dropbtn">Events
                    </span>
                    <div class="dropdownCalendar-content">
                         @if ($calendrier===true)

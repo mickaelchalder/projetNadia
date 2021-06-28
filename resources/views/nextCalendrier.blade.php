@@ -8,6 +8,7 @@
             <div class="left">
                 <form action='{{ url('prevRoute') }} ' method='post' >
                     @csrf
+                    
                     <input type='hidden' name='prev' value='{{$newDate->newDate}}'>
                     <input class='prev buttonMois' type='submit' value='&#10094;' >
                 </form>
@@ -64,44 +65,62 @@
                 @for($x = 1; $x <= $nbJour; $x++)
             
                     <li >
-                        @if ($x == $calendar->day and $calendar->month === $newDate->newMonth and $calendar->year === $newDate->newYear)
+                        @if ($x == $calendar->day and $varMois === $newDate->newMonth and $calendar->year === $newDate->newYear)
                           
-                            @if (isset($nextEventa) and in_array($x, $nextEventa))
-                                <form action='{{ url('event') }} ' method='post' >
-                                    @csrf
-                                    <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $calendar->month, $calendar->day, $calendar->year))}}'>
-                                    <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $newDate->newMonth, $x, $newDate->newYear))}}'>
-                                    <span class='active'><input class='event' type='submit' value='{{$x}}' ></span>
-                                </form>
-                            @else
-                                <form action='{{ url('event') }} ' method='post' >
-                                    @csrf
-                                    <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $calendar->month, $calendar->day, $calendar->year))}}'>
-                                    <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $newDate->newMonth, $x, $newDate->newYear))}}'>
-                                    <span class='active'><input class='alldays' type='submit' value='{{$x}}' ></span>
-                                </form>
-                            @endif
+                                @if (isset($nextEventa) and in_array($x, $nextEventa))
+                                    <form action='{{ url('event') }} ' method='post' >
+                                        @csrf
+                                        <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $varMois, $calendar->day, $calendar->year))}}'>
+                                        <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $newDate->newMonth, $x, $newDate->newYear))}}'>
+                                        <span class='active'><input class='event' type='submit' value='{{$x}}' style="color: rgb(9, 131, 45)" ></span>
+                                    </form>
+                                @else
+                                    <form action='{{ url('event') }} ' method='post' >
+                                        @csrf
+                                        <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $varMois, $calendar->day, $calendar->year))}}'>
+                                        <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $newDate->newMonth, $x, $newDate->newYear))}}'>
+                                        <span class='active'><input class='alldays' type='submit' value='{{$x}}' style="color: rgb(9, 131, 45)"></span>
+                                    </form>
+                                @endif
 
-                        @elseif (($x > $calendar->day and $calendar->month <= $newDate->newMonth and $calendar->year <= $newDate->newYear)or($x <= $calendar->day and $calendar->month < $newDate->newMonth and $calendar->year <= $newDate->newYear)or($x < $calendar->day and $calendar->month = $newDate->newMonth and $calendar->year < $newDate->newYear)) 
+                        @elseif (($x > $calendar->day and $varMois <= $newDate->newMonth and $calendar->year <= $newDate->newYear)or($x <= $calendar->day and $varMois < $newDate->newMonth and $calendar->year <= $newDate->newYear)or($x < $calendar->day and $varMois == $newDate->newMonth and $calendar->year < $newDate->newYear)) 
+                            
+                                @if (isset($nextEventa) and in_array($x, $nextEventa))
+                                    <form action='{{ url('event') }} ' method='post' >
+                                        @csrf
+                                        <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $varMois, $calendar->day, $calendar->year))}}'>
+                                        <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $newDate->newMonth, $x, $newDate->newYear))}}'>
+                                        <input class='event' type='submit' value='{{$x}}' style="color: burlywood">
+                                    </form>
+                                @else
+                                    <form action='{{ url('event') }} ' method='post' >
+                                        @csrf
+                                        <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $varMois, $calendar->day, $calendar->year))}}'>
+                                        <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $newDate->newMonth, $x, $newDate->newYear))}}'>
+                                        <input class='alldays' type='submit' value='{{$x}}' >
+                                    </form>
+                                @endif
 
-                            @if (isset($nextEventa) and in_array($x, $nextEventa))
-                                <form action='{{ url('event') }} ' method='post' >
-                                    @csrf
-                                    <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $calendar->month, $calendar->day, $calendar->year))}}'>
-                                    <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $newDate->newMonth, $x, $newDate->newYear))}}'>
-                                    <input class='event' type='submit' value='{{$x}}' >
-                                </form>
-                            @else
-                                <form action='{{ url('event') }} ' method='post' >
-                                    @csrf
-                                    <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $calendar->month, $calendar->day, $calendar->year))}}'>
-                                    <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $newDate->newMonth, $x, $newDate->newYear))}}'>
-                                    <input class='alldays' type='submit' value='{{$x}}' >
-                                </form>
-                            @endif
+                        @elseif (( $varMois > $newDate->newMonth and $calendar->year < $newDate->newYear)or($x == $calendar->day and $varMois == $newDate->newMonth and $calendar->year < $newDate->newYear)) 
+
+                                @if (isset($nextEventa) and in_array($x, $nextEventa))
+                                    <form action='{{ url('event') }} ' method='post' >
+                                        @csrf
+                                        <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $varMois, $calendar->day, $calendar->year))}}'>
+                                        <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $newDate->newMonth, $x, $newDate->newYear))}}'>
+                                        <input class='event' type='submit' value='{{$x}}' >
+                                    </form>
+                                @else
+                                    <form action='{{ url('event') }} ' method='post' >
+                                        @csrf
+                                        <input type='hidden' name='realdate' value='{{date("Y-m-d", mktime(0, 0, 0, $varMois, $calendar->day, $calendar->year))}}'>
+                                        <input type='hidden' name='date' value='{{date("Y-m-d", mktime(0, 0, 0, $newDate->newMonth, $x, $newDate->newYear))}}'>
+                                        <input class='alldays' type='submit' value='{{$x}}' >
+                                    </form>
+                                @endif
 
                         @else
-                                <span class='beforedays'>{{$x}}</span>
+                                    <span class='beforedays' >{{$x}}</span>
                         @endif
                     </li>
                 @endfor

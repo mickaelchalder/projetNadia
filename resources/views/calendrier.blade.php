@@ -27,7 +27,7 @@
             <div class="right">    
                 <form action='{{ url('nextRoute') }}' method='post' >
                     @csrf
-                    <input type='hidden' name='next' value='{{$date->date}}'>
+                   <input type='hidden' name='next' value='{{$date->date}}'>
                     <input class='next buttonMois' type='submit'  value='&#10095;' >
                 </form>
             </div>
