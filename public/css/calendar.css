@@ -1,6 +1,5 @@
 * {box-sizing: border-box;}
 ul {list-style-type: none;}
-body {font-family: Verdana, sans-serif;}
 
 h5{
   margin: 0;
@@ -156,9 +155,7 @@ a:hover,a:hover #myBtn{
 .days li .active {
   color: rgb(255, 255, 255);
   padding: 0.2em 0px 0.2em 0px;
-  background-color: transparent;
   cursor: pointer;
-  border-bottom: 0.1px solid beige;
 }
 
 /* Add media queries for smaller screens */

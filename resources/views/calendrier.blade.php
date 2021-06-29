@@ -1,4 +1,4 @@
-
+<div class="">{{$date->year}}</div>
 <div class="container">
     @if ($errors->any())
     problème de d'insertion en base de donnée
