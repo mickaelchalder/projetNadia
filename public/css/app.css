@@ -105,6 +105,11 @@ box-shadow:5px 5px 10px white;
 #flex-container-article{
 	display: flex;
 	flex-direction: column;
+	background-image: url('../storage/image/flex-container-article-bg2.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
 }
 #flex-container-btn-fb{
 	display: flex;
@@ -112,6 +117,14 @@ box-shadow:5px 5px 10px white;
 }
 #btn-nav{
 	text-align: center;
+	background-image: linear-gradient(
+        rgba(0, 0, 0, 0.6), 
+        rgba(0, 0, 0, 0.6)
+      ), 
+		url('../storage/image/btn-nav-background1.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 [aria-label="Pagination Navigation"] .relative{
 	font-size: 30px;
