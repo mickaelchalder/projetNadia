@@ -12,7 +12,7 @@
                      <i class="fa fa-caret-down"></i>
                    </span>
                    <div class="dropdown-content">
-                     <a href="#">Bio</a>
+                     <a href="{{url("bio")}}">Bio</a>
                      <a href="{{route('listeH')}}">Hommage</a>
                    </div>
                  </div> 
@@ -26,14 +26,15 @@
            <div class=" header_nav ">
                  <a href="{{url('allEvent')}}" class="header_cadre">Events</a>
                 <div class="dropdownCalendar-content">
-                     @if ($calendrier===true)
+                    @if ($calendrier===true)
                         @include('calendrier')
                     @else
                         @include('nextCalendrier')
                     @endif 
                 </div>
             </div> 
-       </div>
+        </div>
+
        <div class="header_login">
            {{-- <div class="header_nav "> --}}
                @if (Route::has('login'))
@@ -67,10 +68,10 @@
        <a href="javascript:void(0)" class="header_closebtn" onclick="closeNav()">&times;</a>
        <div class="header_overlay-content">
            <a href="{{url('allEvent')}}">Events</a>
-           <a href="index.html">Prestation</a>
+           <a href="{{route('listeP')}}">Prestation</a>
            <a href="{{url('newsletter')}}">Newsletter</a>
            <a href="{{url('formulaire')}}">Contact</a>
-           <a href="index.html">Bio</a>
+           <a href="{{url("bio")}}">Bio</a>
            <a href="{{route('listeH')}}">Hommage</a>
            @if (Route::has('login'))
                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -100,4 +101,3 @@
 <a href="{{url('formulaire')}}" class="Form_icon"  ><img src="{{asset('storage/image/letter.PNG')}}" width="60px" height="60px" alt="formulaire"></a>
 
 <a href="{{url('newsletter')}}" class="Form_icon2"  ><img src="{{asset('storage/image/newsletter.PNG')}}" width="60px" height="60px" alt="newsletter"></a>
- 

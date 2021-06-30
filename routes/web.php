@@ -14,6 +14,7 @@ use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\HommageController;
 use Faker\Provider\Lorem;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -123,6 +124,8 @@ Route::group(["middleware" => "web"], function(){
     Route::put('/modifProduit', [ProduitController::class, 'modifierProduit']);
 
 
+    // Route pour aller sur la page Bio
+    Route::view('/bio', 'bio');
 
 });
 

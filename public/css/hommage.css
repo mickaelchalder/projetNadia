@@ -27,10 +27,17 @@
 	text-align: center;
 	font-size: x-large;
 	margin: 5px;
+	font-weight: bold;
+}
+.titre-hommage-admin{
+	text-align: center;
+	margin: 10px;
 }
 .message-hommage{
 	text-align: justify;
 	margin: 10px;
+	letter-spacing: 0.2em;
+	font-size: 20px;
 }
 .container-flex-container-liseret{
 	display: flex;
@@ -46,11 +53,11 @@
 .pc-hommage{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 0fr 0fr;
+	grid-template-rows: 0.2fr 1fr;
 	grid-template-areas:
 	"img titre"
 	"img message";
-	border: white 2px solid;
+	margin: 20px;
 }
 .img-hommage{
 	grid-area: img;
@@ -60,5 +67,9 @@
 }
 .titre-hommage{
 	grid-area: titre;
+}
+.liseret_hommage{
+	width: 30%;
+	margin: 10px;
 }
 }
