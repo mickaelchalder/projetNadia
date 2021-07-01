@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Storage;
 
 class ProduitController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except(['listeProduit','getProduit']);
+    }
     /**
      * [Liste de tous les articles]
      * @return [type] [description]

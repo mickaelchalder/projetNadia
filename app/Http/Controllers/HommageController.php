@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Storage;
 
 class HommageController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except('listeHommage');
+    }
     /**
      * [Liste de tous les articles]
      * @return [type] [description]

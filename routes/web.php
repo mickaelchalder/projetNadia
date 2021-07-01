@@ -14,7 +14,6 @@ use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\HommageController;
 use Faker\Provider\Lorem;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,48 +29,16 @@ use Faker\Provider\Lorem;
 // Middleware fonctionne un peu comme un filtre avant d'accéder aux routes, là en l'occurrence il dirige vers le fichier web 
 Route::group(["middleware" => "web"], function(){
 
+// =================================Route ARTICLE================================= 
+
     // Route pour la page d'accueil
     Route::get('/', [ArticleController::class, 'Accueil_calendrier']);
 
     // Route pour aller à l'article
     Route::get('/modifArticles/{article}', [ArticleController::class, 'getArticle']);
 
-    // route vers le formulaire et son traitement 
-    Route::get('formulaire', [FormulaireController::class, 'create']);
-    Route::post('formulaire', [FormulaireController::class, 'store']);
-
-    // route vers la newsletter et son traitement 
-    Route::post('abbonnement', [NewsletterController::class, 'store']);
-    Route::get('newsletter', [NewsletterController::class, 'create']);
-
-    //route vers page d'ajout/de modification et de suppression d'article  
+    // Route pour aller sur la page d'ajout de l'article
     Route::get('AddArticle', [ArticleController::class, 'listeArticle'])->name('add');
-
-
-
-    //route d'affichage des changement du calendrier 
-    Route::post('nextRoute', [CalendarController::class, 'affichageCalendarNextMonth']); 
-    Route::post('prevRoute', [CalendarController::class, 'affichageCalendarPrevMonth']); 
-    
-
-
-    //route vers un événement d'une date contenant aussi la fonction de suppression automatique d'événements
-    Route::post('event', [CrudController::class, 'autoSuppression']);
-
-    //route d'affichage de tous les événements dans l'ordre du plus récent
-    Route::get('allEvent',[CrudController::class, 'afficherTous']);
-
-    //route vers une page d'ajout/de modification et de suppression d'article  
-    Route::post('/calendrier',  [CrudController::class, 'ajouterEvent'] )->name('creation');
-    
-    // route de suppression  d'événements
-    Route::delete('/supprimer', [CrudController::class, 'supprimerEvent'] )->name('supprimer'); 
-    //route de modification d'événements
-    Route::put('/modifEvent', [CrudController::class, 'modifierEvent'] )->name('modifEvent'); 
-    //route de récupération de l'événement pour affichage avant modification
-    Route::put('/modifier', [CrudController::class, 'edit'] )->name('modifier'); 
-    
-
 
     // Route pour ajouter un article
     Route::post('/articles', [ArticleController::class, 'ajouterArticle']);
@@ -84,51 +51,97 @@ Route::group(["middleware" => "web"], function(){
 
     // Route pour modifier un article
     Route::put('/modifArticle', [ArticleController::class, 'modifierArticle']);
-        
 
+// =================================Route CALENDRIER================================= 
 
-    // Route pour la page d'accueil
+    // Route pour aller au mois suivant
+    Route::post('nextRoute', [CalendarController::class, 'affichageCalendarNextMonth']); 
+
+    // Route pour aller au mois précédent
+    Route::post('prevRoute', [CalendarController::class, 'affichageCalendarPrevMonth']); 
+    /* Route::get('nextYear', [CalendarController::class, 'affichageCalendarNextYear']); 
+    Route::get('prevYear', [CalendarController::class, 'affichageCalendarPrevYear']);  */
+
+// =================================Route FORMULAIRE================================= 
+
+    // Route pour aller à la page du formulaire de contact
+    Route::get('formulaire', [FormulaireController::class, 'create']);
+    // Route pour envoyer le formulaire de contact par mail
+    Route::post('formulaire', [FormulaireController::class, 'store']);
+    
+// =================================Route NEWSLETTER=================================     
+
+    // Route pour aller à la page de la newsletter
+    Route::post('newsletter', [FormulaireController::class, 'store']);
+
+    // Route pour enregistrer l'abonnement
+    Route::get('newsletter', [NewsletterController::class, 'create']);
+
+// =================================Route EVENT=================================     
+
+    // Route^pour effacer les events passés la date du jour
+    Route::post('event', [CrudController::class, 'autoSuppression']);
+
+    //route d'affichage de tous les événements dans l'ordre du plus récent
+    Route::get('allEvent',[CrudController::class, 'afficherTous']);
+
+    // Route pour ajouter un event
+    Route::post('/calendrier',  [CrudController::class, 'ajouterEvent'] )->name('creation');
+    
+    // Route pour supprimer un event
+    Route::delete('/supprimer', [CrudController::class, 'supprimerEvent'] )->name('supprimer'); 
+
+    // Route pour aller à la page modif de l'event
+    Route::put('/modifEvent', [CrudController::class, 'modifierEvent'] )->name('modifEvent'); 
+
+    // Route pour modifier l'event
+    Route::put('/modifier', [CrudController::class, 'edit'] )->name('modifier'); 
+
+// =================================Route PRODUIT=================================     
+
+    // Route pour la page d'accueil des produits
     Route::get('/listeProduit', [ProduitController::class, 'listeProduit'])->name('listeP');
 
-    // Route pour la page d'accueil
+    // Route pour ajouter un produit
+    Route::post('/addProduit', [ProduitController::class, 'ajouterProduit']);
+
+    // Route pour aller à la page de modification du produit
+    Route::get('/modifProduits/{produit}', [ProduitController::class, 'editProduit'])->name('editProduit');
+
+    // Route pour modifier un hommage
+    Route::put('/modifProduit', [ProduitController::class, 'modifierProduit']);
+
+    // Route pour supprimer un hommage
+    Route::delete('/produits/{produit}', [ProduitController::class, 'supprimerProduit']);
+
+    // Route pour aller à la page du produit
+    Route::get('/produits/{produit}', [ProduitController::class, 'getProduit'])->name('getProduit');
+
+// =================================Route HOMMAGE=================================     
+
+    // Route pour la page d'accueil des hommages
     Route::get('/listeHommage', [HommageController::class, 'listeHommage'])->name('listeH');
 
     // Route pour ajouter un hommage
     Route::post('/addHommage', [HommageController::class, 'ajouterHommage']);
 
+    // Route pour aller à la page de modification de l'hommage
+    Route::get('/hommages/{hommage}', [HommageController::class, 'editHommage'])->name('editHommage');
 
     // Route pour modifier un hommage
     Route::put('/modifHommage', [HommageController::class, 'modifierHommage']);
 
-    // Route pour aller à la page de modification de l'hommage
-    Route::get('/hommages/{hommage}', [HommageController::class, 'editHommage'])->name('editHommage');
-
     // Route pour supprimer un hommage
     Route::delete('/hommages/{hommage}', [HommageController::class, 'supprimerHommage']);
 
-
-
-
-    Route::post('/addProduit', [ProduitController::class, 'ajouterProduit']);
-
-    // Route pour supprimer un hommage
-    Route::delete('/produits/{produit}', [ProduitController::class, 'supprimerProduit']);
-
-    // Route pour aller à la page de modification du produit
-    Route::get('/modifProduits/{produit}', [ProduitController::class, 'editProduit'])->name('editProduit');
-
-    // Route pour aller à l'article
-    Route::get('/produits/{produit}', [ProduitController::class, 'getProduit'])->name('getProduit');
-
-    // Route pour modifier un hommage
-    Route::put('/modifProduit', [ProduitController::class, 'modifierProduit']);
-
+// =================================Route BIO=================================     
 
     // Route pour aller sur la page Bio
     Route::view('/bio', 'bio');
 
 });
 
-Route::get('/dashboard', [ArticleController::class, 'Accueil_calendrier']);
+    // Route pour l'authentification
+    Route::get('/dashboard', [ArticleController::class, 'Accueil_calendrier']);
 
-require __DIR__.'/auth.php';
+    require __DIR__.'/auth.php';

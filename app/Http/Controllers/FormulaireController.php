@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\DB;
 
 class FormulaireController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except(['create','store']);
+    }
     public function create()
     {
         return view('formulaire');

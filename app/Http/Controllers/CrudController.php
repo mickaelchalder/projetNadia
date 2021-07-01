@@ -14,6 +14,10 @@ use SebastianBergmann\Type\ObjectType;
 
 class CrudController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except(['afficherTous','listeEvent','autoSuppression','deadEvent','listedate']);
+    }
+
     public function afficherTous(){
 
         $allEvent = new Calendars();

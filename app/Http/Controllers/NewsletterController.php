@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Validator;
 
 class NewsletterController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except('create');
+    }
     public function create()
     {
         return view('newsletter');
