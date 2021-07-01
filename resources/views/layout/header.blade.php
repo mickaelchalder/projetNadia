@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset("css/calendar.css")}}">
     <link rel="stylesheet" href="{{asset("css/hommage.css")}}">
     <link rel="stylesheet" href="{{asset("css/bio.css")}}">
+    <link rel="stylesheet" href="{{asset("css/produit.css")}}">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet"> 

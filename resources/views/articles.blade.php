@@ -2,9 +2,8 @@
 
 				<body>
 				<div class="article">
-				<div type="hidden" name="id" value="{{$articles->id}}"></div>
 				<img src="{{ asset('storage/image/'.$articles->img) }}" class="cadreImage2">
-				<a href="javascript:history.back()" class="btn-retour lien-color">retour</a>
+				<a href="{{ URL::previous() }}" class="btn-retour lien-color">retour</a>
 				<div class="titreArticle">{{$articles->titre}}</div>
 				<div class="message">{!!nl2br($articles->message)!!}</div>
 				</div>

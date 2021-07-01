@@ -2,6 +2,9 @@
 
 
 	@auth
+	<div class="background-produit">
+	<div class="div-back"><a href="{{url('/')}}" class="div-back-btn">&times;</a></div>
+
 	<h1>Ajouter un produit</h1>
 
 		<form method="post" action="{{url("addProduit")}}" enctype="multipart/form-data">
@@ -25,13 +28,8 @@
 		<input type="reset">
 	</div>
 	</form>
-	@endauth
 
-	<div><a href="{{url('/')}}">Retour</a></div>
-
-	@auth
-
-	<div id="grid-container">
+	<div id="grid-container-produit">
 		@foreach($produits as $produit)
 			<div class="positionTitreProduit">
 				<a href="{{url('produits/'.$produit->id)}}"><img src="{{ asset('storage/image/'.$produit->img) }}" class="cadreProduit">
@@ -54,17 +52,27 @@
 
 		@endforeach
 	</div>
-
+	</div>
 	@endauth
 
 	@guest
-	<div id="grid-container">
+
+	<div class="background-produit">
+
+	<div class="div-back"><a href="{{url('/')}}" class="div-back-btn">&times;</a></div>
+
+	<h1 class="h1-produit">Produit & Prestation</h1>
+
+	<div id="grid-container-produit">
 		@foreach($produits as $produit)
-			<div class="positionTitreProduit"><a href="{{url('articles/'.$produit->id)}}"><img src="{{ asset('storage/image/'.$produit->img) }}" class="cadreProduit">
-						<h2 class="flex-container">{{$produit->titre}}</h2>
+			<div class="positionTitreProduit">
+				<a href="{{url('produits/'.$produit->id)}}">
+					<img src="{{ asset('storage/image/'.$produit->img) }}" class="cadreProduit">
+					<h2 class="flex-container-produit">{{$produit->titre}}</h2>
 				</a>
 			</div>
 		@endforeach
+	</div>
 	</div>
 	@endguest
 
