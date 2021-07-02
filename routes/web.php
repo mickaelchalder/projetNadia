@@ -77,6 +77,8 @@ Route::group(["middleware" => "web"], function(){
     // Route pour enregistrer l'abonnement
     Route::get('newsletter', [NewsletterController::class, 'create']);
 
+    Route::post('abonnement', [NewsletterController::class, 'store']);
+
 // =================================Route EVENT=================================     
 
     // Route^pour effacer les events passés la date du jour

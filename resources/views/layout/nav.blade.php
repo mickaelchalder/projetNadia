@@ -13,7 +13,7 @@
                    </span>
                    <div class="dropdown-content">
                      <a href="{{url("bio")}}">Bio</a>
-                     <a href="{{route('listeH')}}">Hommage</a>
+                     <a href="{{route('listeH')}}">Hommages</a>
                    </div>
                  </div> 
            </div>
@@ -72,7 +72,7 @@
            <a href="{{url('newsletter')}}">Newsletter</a>
            <a href="{{url('formulaire')}}">Contact</a>
            <a href="{{url("bio")}}">Bio</a>
-           <a href="{{route('listeH')}}">Hommage</a>
+           <a href="{{route('listeH')}}">Hommages</a>
            @if (Route::has('login'))
                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                    @auth

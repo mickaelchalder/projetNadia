@@ -21,7 +21,7 @@ class CrudController extends Controller
     public function afficherTous(){
 
         $allEvent = new Calendars();
-        $allEvent->all = Calendars::orderBy("created_at", "desc")->get();
+        $allEvent->all = Calendars::orderBy("date", "ASC")->get();
         $allEvent->date = Calendars::orderBy("created_at", "desc")->value('date');
         $allEvent->id = Calendars::orderBy("created_at", "desc")->value('id');
         $allEvent->titre = Calendars::orderBy("created_at", "desc")->value('titre');

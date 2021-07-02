@@ -8,7 +8,7 @@
 <div class="container-flex-container-liseret"><img src="{{asset('storage/image/liseret_hommage.png')}}" class="liseret_hommage"></div>
 
 <div class="grid-container-bio">
-	<img src="{{asset('storage/image/bio.jpg')}}" class="img-bio">
+	<img src="{{asset('storage/image/image1.jpg')}}" class="img-bio">
 
 	<div class="message-bio">
 	<div>L'association A Petits Pas avec Jordan a déposé ses statuts en juillet 1997. </div><br>
