@@ -14,7 +14,7 @@
 	<div>L'association A Petits Pas avec Jordan a déposé ses statuts en juillet 1997. </div><br>
 <div>Elle a été créée pour venir en aide à Jordan née avec une microcéphalie d’origine inconnue.</div><br><br>
 <div>En 1995 après de nombreuses recherches Jordan fût condamné par la médecine à ne jamais marcher, à vivre dans un état proche du végétatif et ne pas survivre au-delà de ses 7 ans.</div><br>
-<div>En div que maman, je ne pouvais pas me résigner à un destin aussi injuste ni à le placer en institut.</div><br>
+<div>En tant que maman, je ne pouvais pas me résigner à un destin aussi injuste ni à le placer en institut.</div><br>
 <div>Ayant pris connaissance d’une méthode de stimulations multisensorielles à l'étranger, appelée patterning, j'ai décidé de créer une association, pour d'une part financer les frais occasionnés par cette méthode et d'autre part pour rassembler les bénévoles nécessaires à cette stimulation.</div><br>
 <div>Pendant de nombreuses années, soutenus par 48 bénévoles, nous avons stimulé Jordan 8 à 10h par jour. Au fur et à mesure nous avons complété avec d'autres méthodes pour aider Jordan à être le plus autonome possible.</div><br>
 <div>Aujourd’hui Jordan à 27 ans grâce à beaucoup d'amour au soutien de tous et à la détermination de Jordan qui a toujours forcé l'admiration de la maman que je suis nous avons gagné de belles batailles. </div><br>
