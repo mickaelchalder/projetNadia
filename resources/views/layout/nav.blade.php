@@ -68,6 +68,7 @@
        <a href="javascript:void(0)" class="header_closebtn" onclick="closeNav()">&times;</a>
        <div class="header_overlay-content">
            <a href="{{url('allEvent')}}">Events</a>
+           <a href="#show" class="header_cadre">Article</a>
            <a href="{{route('listeP')}}">Prestation</a>
            <a href="{{url('newsletter')}}">Newsletter</a>
            <a href="{{url('formulaire')}}">Contact</a>
