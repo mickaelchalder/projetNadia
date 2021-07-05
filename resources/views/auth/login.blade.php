@@ -1,8 +1,9 @@
 <x-guest-layout>
     <x-auth-card>
+        <div class="login-accueil">
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            <a href="{{url('/')}}">
+                <x-application-logo/>
             </a>
         </x-slot>
 
@@ -46,5 +47,6 @@
                 </x-button>
             </div>
         </form>
+        </div>
     </x-auth-card>
 </x-guest-layout>

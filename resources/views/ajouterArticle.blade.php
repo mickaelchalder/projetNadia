@@ -1,5 +1,6 @@
 @include('layout.header')
-	<a href="{{url('/')}}">Retour</a><h1 class="h1-article">Liste d'articles</h1>
+
+	<h1 class="h1-article">Liste d'articles</h1>
 
 	<form method="post" action="{{url("articles")}}" enctype="multipart/form-data">
 	<div class="article">
@@ -17,10 +18,12 @@
 	@foreach ($articles as $article)
 	<tr>
 		<td>
+
 			<form action="{{url('articles/'.$article->id)}}" method="post">
 				{{csrf_field()}}
 				{!!method_field('DELETE')!!}
 				<div class="article">
+					
 				<input type="hidden" name="id" value="{{$article->id}}">
 			<div class="titreArticle">{{$article->titre}}</div><br>
 			@if($article->img)

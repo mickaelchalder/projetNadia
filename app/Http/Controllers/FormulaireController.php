@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\DB;
 
 class FormulaireController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except(['create','store']);
+    }
     public function create()
     {
         return view('formulaire');
@@ -23,9 +26,9 @@ class FormulaireController extends Controller
         $sendNewsletter = DB::table('Newsletter')->select('email')->get();
         Mail::to($sendNewsletter)
         ->send(new Newsletter($tab)); 
-
        
     }
+    
     public  function store(ContactRequest $request)
     {
         Mail::to('chalder@hotmail.fr')

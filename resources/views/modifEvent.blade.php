@@ -2,14 +2,14 @@
 
     <h1>modifier l'article du {{$modif->date}}</h1>
     <div class="article">
-        <form method="post" action="{{route("modifEvent")}}" enctype="multipart/form-data">
+        <form method="post" action="{{url("modifEvent")}}" enctype="multipart/form-data">
+            @csrf
+                {!! method_field('PUT') !!}
             <fieldset>
             <legend>modifier la date </legend>
-                @csrf
-                {!! method_field('PUT') !!}
+                
                 <input type="date" name="newDate" value="{{$modif->date}}" class="titreArticle">
             </fieldset>
-
             <fieldset>
             <legend>modifier la titre </legend>
 
@@ -34,7 +34,7 @@
 
                 <input type="submit" name="send" value="Valider">
                 <input type="reset">
-            </form>
+        </form>
         
             <form action='{{ url('event') }} ' method='post' >
                 @csrf

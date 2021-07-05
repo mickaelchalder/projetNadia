@@ -14,7 +14,22 @@ use SebastianBergmann\Type\ObjectType;
 
 class CrudController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth')->except(['afficherTous','listeEvent','autoSuppression','deadEvent','listedate']);
+    }
 
+    public function afficherTous(){
+
+        $allEvent = new Calendars();
+        $allEvent->all = Calendars::orderBy("date", "ASC")->get();
+        $allEvent->date = Calendars::orderBy("created_at", "desc")->value('date');
+        $allEvent->id = Calendars::orderBy("created_at", "desc")->value('id');
+        $allEvent->titre = Calendars::orderBy("created_at", "desc")->value('titre');
+        $allEvent->img = Calendars::orderBy("created_at", "desc")->value('img');
+        $allEvent->message = Calendars::orderBy("created_at", "desc")->value('message');
+
+        return view('allEvent',['allEvent' => $allEvent]);
+    }
     
     public function ajouterEvent(Request $request){
         // Vérifie les conditions de l'objet
@@ -81,7 +96,6 @@ class CrudController extends Controller
             'newMessage' => '',
             'newImg' => 'image|mimes:jpg,png,jpeg,gif|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
             ]);
-            
             // En cas d'erreurs, il redirige vers la page d'accueil
             if($validator->fails()){
                 return redirect('/modifEvent')->withInput($request->except('key'))

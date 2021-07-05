@@ -14,7 +14,8 @@ class CalendarController extends Controller
 
     public static function affichageCalendarNextMonth(NextRequest $request){
         $next=$request->next;
-        $calendar=CalendarController::buildCalendrier($next);
+        $calendar=CalendarController::buildCalendrier();
+        $varMois=CalendarController::buildMoisCalendrier();
         $newCalendrier=CalendarController::buildNextCalendrier($next);
         $mois=CalendarController::mois();
         $semaine=CalendarController::semaine();
@@ -23,11 +24,13 @@ class CalendarController extends Controller
         $nextEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
         $articles = Articles::orderBy("created_at", "desc")->paginate(9); 
         $calendrier = false;
-        return view('accueil', ['articles' => $articles,'nextEventa' => $nextEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour,'calendrier'=>$calendrier]);
+        return view('accueil', ['articles' => $articles,'nextEventa' => $nextEventa,'calendar' => $calendar,'varMois' => $varMois,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour,'calendrier'=>$calendrier]);
     }
     public static function affichageCalendarPrevMonth(PrevRequest $request){
         $prev=$request->prev;
-        $calendar=CalendarController::buildCalendrier($prev);
+        
+        $calendar=CalendarController::buildCalendrier();
+        $varMois=CalendarController::buildMoisCalendrier();
         $newCalendrier=CalendarController::buildPrevCalendrier($prev);
         $mois=CalendarController::mois();
         $semaine=CalendarController::semaine();
@@ -36,7 +39,7 @@ class CalendarController extends Controller
         $prevEventa = CrudController::listedate($newCalendrier->newMonth,$newCalendrier->newYear);
         $articles = Articles::orderBy("created_at", "desc")->paginate(9); 
         $calendrier = false;
-        return view('accueil', ['articles' => $articles,'nextEventa' => $prevEventa,'calendar' => $calendar,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour,'calendrier'=>$calendrier]);
+        return view('accueil', ['articles' => $articles,'nextEventa' => $prevEventa,'calendar' => $calendar,'varMois' => $varMois,'newDate' => $newCalendrier,'mois' => $mois,'semaine' => $semaine,'nbJour' => $nbJour,'premierJour' => $premierJour,'calendrier'=>$calendrier]);
 
     }
 
@@ -81,7 +84,17 @@ class CalendarController extends Controller
         return $calendrier;
 
     }
+    
+    public static function buildMoisCalendrier() {
+        //création d'une fonction qui crée un objet dateime 
+        $calendrier = new \DateTime(); //le backslach permet d'utiliser la fonction php
+        //ici j'enregistre la date actuel dans plusieur format 
+        //affin de les ytiliser dans ma vue 
+        
+        $leMois =$calendrier->format('m');
+        return $leMois;
 
+    }
     
 
     public static function buildNextCalendrier($post) { //ici la fonction va 
